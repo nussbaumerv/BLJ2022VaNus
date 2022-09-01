@@ -1,1 +1,1 @@
-Hello World and Hello Github
+Hello World
