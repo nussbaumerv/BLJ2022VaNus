@@ -9,7 +9,7 @@ int main()
 
     printf("\033[0;31m");
     printf("------------------------------------- \n");
-    printf("|  Flush year and month calculator. |\n");
+    printf("|   Leap year and month calculator. |\n");
     printf("-------------------------------------\n");
     printf("\033[0;37m");
 
