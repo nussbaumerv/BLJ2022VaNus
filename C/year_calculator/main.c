@@ -17,7 +17,7 @@ int main()
     scanf("%d", &month);
 
     fflush(stdin);
-    
+
     printf("Bitte geben Sie das Jahr ein: ");
     scanf("%d", &year);
 
@@ -57,7 +57,11 @@ int isLeapYear(int year)
 // returns 0 if is no LeapYear
 int daysInMonth(int month, int year)
 {
-    if (month == 1 || 3 || 5 || 7 || 8 || 10 || 12)
+    if (month == 4 || month == 6 || month == 9 || month == 11)
+    {
+        return 30;
+    }
+    else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
     {
         return 31;
     }
@@ -76,7 +80,8 @@ int daysInMonth(int month, int year)
         }
         else
         {
-            return 30;
+            printf("You entered a wrong number\n\n");
+            main();
         }
     }
 
