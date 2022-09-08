@@ -11,8 +11,8 @@
  * Created on 2. September 2022, 09:18
  */
 
-#ifndef OUTPUT_H
-#define OUTPUT_H
+#ifndef INPUTHANDLER_H
+#define INPUTHANDLER_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,6 +24,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
+void output();
 #endif /* OUTPUT_H */
 

@@ -5,21 +5,25 @@
  */
 
 /* 
- * File:   main.c
+ * File:   output.h
  * Author: nussb
  *
- * Created on 2. September 2022, 09:17
+ * Created on 2. September 2022, 09:18
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "inputhandler.h"
+#ifndef INPUTHANDLER_H
+#define INPUTHANDLER_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
-int main(int argc, char** argv) {
-    output();
 
-    return (EXIT_SUCCESS);
+
+#ifdef __cplusplus
 }
-
+#endif
+void output();
+#endif /* OUTPUT_H */
 
