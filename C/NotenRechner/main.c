@@ -1,10 +1,3 @@
-/*
- * File:   main.c
- * Author: surber
- *
- * Created on 7. September 2022, 10:29
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,7 +15,7 @@ int main(int argc, char **argv)
     float multiplier;
     float marks[25] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     float weight[25] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-
+ 
     printf("\nNumber of grades: ");
     scanf("%d", &num_mark);
     fflush(stdin);
