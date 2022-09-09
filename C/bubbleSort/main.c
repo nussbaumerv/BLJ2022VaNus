@@ -10,19 +10,19 @@
 
 int main(int argc, char **argv)
 {
-    int numbers[5] = {5, 7, 1, 2, 3};
+    int numbers[5] = {1, 4, -1, 2, 3};
     int count_total = 9;
     int counter = 0;
     int countLoop = 0;
 
     while (count_total)
     {
-        if (counter >= 5 - countLoop)
+        if (counter >= 4 - countLoop)
         {
             countLoop++;
             for (int i = 0; i <= 5; i++)
             {
-                printf("%d\n", numbers[i]);
+                //printf("%d\n", numbers[i]);
             }
             counter = 0;
         }
@@ -33,15 +33,17 @@ int main(int argc, char **argv)
             numbers[counter] = b;
             numbers[counter + 1] = a;
         }
-        printf("a=%d b=%d an=%d bn=%d c=%d ct=%d\n", a, b, numbers[counter], numbers[counter + 1], counter, count_total);
+        //printf("a=%d b=%d an=%d bn=%d c=%d ct=%d\n", a, b, numbers[counter], numbers[counter + 1], counter, count_total);
         counter++;
         count_total--;
     }
+    printf("This array was sorted by the bubble Sort algoryth.\nResult: ");
 
-    for (int i = 0; i <= 5; i++)
+    for (int i = 0; i <= 4; i++)
     {
         printf("%d", numbers[i]);
     }
+    printf("\n");
     system("pause");
 
     return (EXIT_SUCCESS);
