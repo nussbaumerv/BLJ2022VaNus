@@ -37,28 +37,38 @@ int main(int argc, char **argv)
         counter++;
         count_total--;
     }
-    int find = 6;
-    fflush(stdin);
+    int find = 7;
+   fflush(stdin);
     printf("Enter de Number you want to search: ");
     scanf("%d", &find);
     fflush(stdin);
     int keepFind = 1;
     int start_point = 0;
-    int end_point = 7;
+    int end_point = 4;
     int middle = 0;
+
+
+    if(numbers[end_point] < find){
+        keepFind = 0;
+        printf("Your number is to big");
+    }
 
     while(keepFind){
         middle = start_point + end_point / 2;
         printf("sp%d ep%d mi%d\n", start_point, end_point, middle);
-        if(middle < find){
+        if(numbers[middle] == find){
+            keepFind = 0;
+            printf("%d", numbers[middle]);
+        }
+        if(numbers[end_point] == find){
+            keepFind = 0;
+            printf("%d", end_point);
+        }
+        else if(middle < find){
             start_point = middle;
         }
         else if(middle > find){
             end_point = middle;
-        }
-        else if(numbers[middle] == find){
-            keepFind = 0;
-            printf("%d", numbers[middle]);
         }
         else {
             printf("Your number isn't in the Index");
