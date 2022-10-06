@@ -1,0 +1,3 @@
+C:/Source/BLJ2022VaNus/C/slidingGame/cmake-build-debug/CMakeFiles/slidingGame.dir
+C:/Source/BLJ2022VaNus/C/slidingGame/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Source/BLJ2022VaNus/C/slidingGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
