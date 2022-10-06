@@ -1,6 +1,50 @@
 #include <stdio.h>
+#include <stdlib.h>
+#define ARRAYLENGTH 3
+
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    int whichFunc = 0;
+    int keepDoing = 1;
+    int x = 0;
+    int y = 0;
+    int saveValue = 0;
+    int arr[ARRAYLENGTH][ARRAYLENGTH] = {{0, 0, 0},
+                                         {0, 0, 0}};
+    do {
+        printf("What feauture do you want to use?\n");
+        printf("1: Add Value\n");
+        printf("2: Remove Value\n");
+        scanf("%d", &whichFunc);
+        fflush(stdin);
+
+        printf("X Value:");
+        scanf("%d", &x);
+
+        printf("Y Value:");
+        scanf("%d", &y);
+
+        if(1 == whichFunc) {
+            printf("Save Value:");
+            scanf("%d", &saveValue);
+            fflush(stdin);
+
+            if (arr[x][y] == 0) {
+                arr[x][y] = saveValue;
+                printf("The Number %d got Added\n", saveValue);
+            }
+            else{
+                printf("Run the other Feautre for that.\n");
+            }
+        }
+        else if(2 == whichFunc){
+            arr[x][y] = 0;
+            printf("You're number got reseted\n");
+        }
+        printf("Do you want to do id again?\nType 1 if you want to:");
+        scanf("%d", &keepDoing);
+    }
+    while(keepDoing == 1);
+
+    system("pause");
 }
