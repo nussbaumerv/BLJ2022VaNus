@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "utils.h"
 
 #define FIELD_SIZE 4
@@ -15,21 +16,53 @@
  */
 int main(void) {
     int field[FIELD_SIZE][FIELD_SIZE] = {
-            { 0, 15,  1, 13},
+            { 0, 14,  1, 13},
             { 8,  5,  2,  3},
-            {14,  7,  4,  9},
+            {15,  7,  4,  9},
             {10, 11,  6, 12},
     };
+    int blankFieldX = 0;
+    int blankFieldY = 0;
     int input = 0;
 
     do {
         printField(FIELD_SIZE, field);
         scanf("%d", &input);
 
-        // TODO: Implement the rules for the sliding puzzle. In other words,
-        // swap neighboured values (horizontally or vertically) in the 2D array
-        // based on user input, but only if the move is legal (bounds checking).
-
+        if (input == 1) {
+            if (blankFieldX < FIELD_SIZE - 1) {
+                swapValues(&field[blankFieldY][blankFieldX], &field[blankFieldY][blankFieldX + 1]);
+                blankFieldX ++;
+            }
+            else{
+                printf("This Step isn't Possible choose another one");
+            }
+        }else if(input == 4){
+            if(blankFieldX > 0) {
+                swapValues(&field[blankFieldY][blankFieldX], &field[blankFieldY][blankFieldX - 1]);
+                blankFieldX --;
+            }
+            else{
+                printf("This Step isn't Possible choose another one");
+            }
+        }else if(input == 2){
+            if(blankFieldY < FIELD_SIZE - 1){
+                swapValues(&field[blankFieldY][blankFieldX], &field[blankFieldY + 1][blankFieldX]);
+                blankFieldY ++;
+            }
+            else{
+                printf("This Step isn't Possible choose another one");
+            }
+        }else if(input == 3){
+            if(blankFieldY > 0){
+                swapValues(&field[blankFieldY][blankFieldX], &field[blankFieldY - 1][blankFieldX]);
+                blankFieldY --;
+            }
+            else{
+                printf("This Step isn't Possible choose another one");
+            }
+        }
     } while (input != 0);
-    return 0;
+    system("pause");
+
 }
