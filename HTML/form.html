@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesgeet" href="css/style.css">
+    <title>Document</title>
+    <style>
+        .row {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form method="post" action="process.php">
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputPreName" class="col-form-label">Anrede:</label>
+                </div>
+                <div class="col-2">
+                    <input type="radio" name="gender" id="inputMen" class="form-check-input"
+                        aria-describedby="menLabel">
+                    <label id="menLabel" class="col-form-text">Mann</label>
+                </div>
+                <div class="col-2">
+                    <input type="radio" name="gender" id="inputWomen" class="form-check-input"
+                        aria-describedby="womenLabel">
+                    <label id="womenLabel" class="col-form-text">Frau</label>
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputPreName" class="col-form-label">Vorname:</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" id="inputPreName" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputName" class="col-form-label">Name:</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" id="inputName" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputDate" class="col-form-label">Datum:</label>
+                </div>
+                <div class="col-5">
+                    <input type="date" id="inputDate" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputAdress" class="col-form-label">Strasse:</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" id="inputAdress" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputPLZ" class="col-form-label">Datum:</label>
+                </div>
+                <div class="col-1">
+                    <input type="number" id="inputPLZ" class="form-control">
+                </div>
+                <div class="col-1">
+                    <label for="inputPLZ" class="col-form-label">Ort:</label>
+                </div>
+                <div class="col-3">
+                    <input type="number" id="inputPLZ" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="inputPLZ" class="col-form-label">Land:</label>
+                </div>
+                <div class="col-5">
+                    <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Waehlen Sie ein Land aus</option>
+                        <option value="Schweiz">Schweiz</option>
+                        <option value="Deutschland">Deutschland</option>
+                    </select>
+
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+
+
+
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/srcript.js"></script>
+</body>
+
+</html>

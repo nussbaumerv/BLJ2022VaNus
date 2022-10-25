@@ -6,6 +6,9 @@
 #define FIELD_SIZE 5
 
 int main(void) {
+    printf("\n+---------------+--------------+\n");
+    printf("| Welcome to my Lightsout Game |\n");
+    printf("+---------------+--------------+\n");
     srand(time(NULL));
     int field[FIELD_SIZE][FIELD_SIZE] = {
             {rand() % 2, rand() % 2, rand() % 2, rand() % 2, rand() % 2},
@@ -14,10 +17,9 @@ int main(void) {
             {rand() % 2, rand() % 2, rand() % 2, rand() % 2, rand() % 2},
             {rand() % 2, rand() % 2, rand() % 2, rand() % 2, rand() % 2},
     };
-    int blankFieldX = 0;
-    int blankFieldY = 0;
     int inputX = 0;
     int inputY = 0;
+    int win = 0;
 
     do {
         printField(FIELD_SIZE, field);
@@ -26,47 +28,48 @@ int main(void) {
         printf("Enter Y:");
         scanf(" %d", &inputY);
 
-        if (-1 < inputY - 1) {
-            printf("1 OK\n");
-            if (1 == field[inputY - 1][inputX]) {
-                field[inputY - 1][inputX] = 0;
+        if(0 <= inputX && 4 >= inputX && 0 <= inputY && 4 >= inputY) {
+            if (-1 < inputY - 1) {
+                if (1 == field[inputY - 1][inputX]) {
+                    field[inputY - 1][inputX] = 0;
+                } else {
+                    field[inputY - 1][inputX] = 1;
+                }
+            }
+            if (5 > inputY + 1) {
+                if (1 == field[inputY + 1][inputX]) {
+                    field[inputY + 1][inputX] = 0;
+                } else {
+                    field[inputY + 1][inputX] = 1;
+                }
+            }
+            if (-1 < inputX - 1) {
+                if (1 == field[inputY][inputX - 1]) {
+                    field[inputY][inputX - 1] = 0;
+                } else {
+                    field[inputY][inputX - 1] = 1;
+                }
+            }
+            if (5 > inputX + 1) {
+                if (1 == field[inputY][inputX + 1]) {
+                    field[inputY][inputX + 1] = 0;
+                } else {
+                    field[inputY][inputX + 1] = 1;
+                }
+            }
+            if (1 == field[inputY][inputX]) {
+                field[inputY][inputX] = 0;
             } else {
-                field[inputY - 1][inputX] = 1;
+                field[inputY][inputX] = 1;
             }
         }
-        if (5 > inputY + 1) {
-            printf("2 OK\n");
-            if (1 == field[inputY + 1][inputX]) {
-                field[inputY + 1][inputX] = 0;
-            } else {
-                field[inputY + 1][inputX] = 1;
-            }
+        else{
+            printf("Please enter a valid input. \n");
         }
-        if (-1 < inputX - 1) {
-            printf("3 OK\n");
-            if (1 == field[inputY][inputX - 1]) {
-                field[inputY][inputX - 1] = 0;
-            } else {
-                field[inputY][inputX -1] = 1;
-            }
-        }
-        if (5 > inputX + 1) {
-            printf("4 OK\n");
-            if (1 == field[inputY][inputX + 1]) {
-                field[inputY][inputX + 1] = 0;
-            } else {
-                field[inputY][inputX + 1] = 1;
-            }
-        }
-        if (1 == field[inputY][inputX]) {
-            field[inputY][inputX] = 0;
-        } else {
-            field[inputY][inputX] = 1;
-        }
+        inputX = 0;
+        inputY = 0;
 
-
-
-    } while (inputX != -1);
+    } while (win == 0);
     system("pause");
 
 }
