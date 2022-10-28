@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=auslagerungFunktionen
+PROJECTNAME=auslagerungFunktionenOriginal
 
 # Active Configuration
 DEFAULTCONF=Debug
