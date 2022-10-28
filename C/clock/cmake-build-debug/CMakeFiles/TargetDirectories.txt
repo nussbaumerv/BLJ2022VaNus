@@ -1,0 +1,3 @@
+C:/Source/BLJ2022VaNus/C/clock/cmake-build-debug/CMakeFiles/clock.dir
+C:/Source/BLJ2022VaNus/C/clock/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Source/BLJ2022VaNus/C/clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
