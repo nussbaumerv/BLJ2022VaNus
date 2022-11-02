@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Pointers
+# Project: pointers2
 # Configurations: Debug
 # =============================================================================
 
@@ -39,49 +39,49 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Source/BLJ2022VaNus/C/KW43/pointers/cmake-build-debug/
+cmake_ninja_workdir = C$:/Source/BLJ2022VaNus/C/KW44/pointers2/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target Pointers
+# Object build statements for EXECUTABLE target pointers2
 
 
 #############################################
-# Order-only phony target for Pointers
+# Order-only phony target for pointers2
 
-build cmake_object_order_depends_target_Pointers: phony || CMakeFiles/Pointers.dir
+build cmake_object_order_depends_target_pointers2: phony || CMakeFiles/pointers2.dir
 
-build CMakeFiles/Pointers.dir/main.c.obj: C_COMPILER__Pointers_Debug C$:/Source/BLJ2022VaNus/C/KW43/pointers/main.c || cmake_object_order_depends_target_Pointers
-  DEP_FILE = CMakeFiles\Pointers.dir\main.c.obj.d
+build CMakeFiles/pointers2.dir/main.c.obj: C_COMPILER__pointers2_Debug C$:/Source/BLJ2022VaNus/C/KW44/pointers2/main.c || cmake_object_order_depends_target_pointers2
+  DEP_FILE = CMakeFiles\pointers2.dir\main.c.obj.d
   FLAGS = -g -std=gnu99
-  OBJECT_DIR = CMakeFiles\Pointers.dir
-  OBJECT_FILE_DIR = CMakeFiles\Pointers.dir
-  TARGET_COMPILE_PDB = CMakeFiles\Pointers.dir\
-  TARGET_PDB = Pointers.pdb
+  OBJECT_DIR = CMakeFiles\pointers2.dir
+  OBJECT_FILE_DIR = CMakeFiles\pointers2.dir
+  TARGET_COMPILE_PDB = CMakeFiles\pointers2.dir\
+  TARGET_PDB = pointers2.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Pointers
+# Link build statements for EXECUTABLE target pointers2
 
 
 #############################################
-# Link the executable Pointers.exe
+# Link the executable pointers2.exe
 
-build Pointers.exe: C_EXECUTABLE_LINKER__Pointers_Debug CMakeFiles/Pointers.dir/main.c.obj
+build pointers2.exe: C_EXECUTABLE_LINKER__pointers2_Debug CMakeFiles/pointers2.dir/main.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Pointers.dir
+  OBJECT_DIR = CMakeFiles\pointers2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\Pointers.dir\
-  TARGET_FILE = Pointers.exe
-  TARGET_IMPLIB = libPointers.dll.a
-  TARGET_PDB = Pointers.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\pointers2.dir\
+  TARGET_FILE = pointers2.exe
+  TARGET_IMPLIB = libpointers2.dll.a
+  TARGET_PDB = pointers2.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Source\BLJ2022VaNus\C\KW43\pointers\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Source\BLJ2022VaNus\C\KW44\pointers2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -92,7 +92,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Source\BLJ2022VaNus\C\KW43\pointers\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Source\BLJ2022VaNus\C\KW43\pointers -BC:\Source\BLJ2022VaNus\C\KW43\pointers\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D C:\Source\BLJ2022VaNus\C\KW44\pointers2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Source\BLJ2022VaNus\C\KW44\pointers2 -BC:\Source\BLJ2022VaNus\C\KW44\pointers2\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -102,7 +102,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build Pointers: phony Pointers.exe
+build pointers2: phony pointers2.exe
 
 # =============================================================================
 # Folder targets.
@@ -110,9 +110,9 @@ build Pointers: phony Pointers.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Source/BLJ2022VaNus/C/KW43/pointers/cmake-build-debug
+# Folder: C:/Source/BLJ2022VaNus/C/KW44/pointers2/cmake-build-debug
 
-build all: phony Pointers.exe
+build all: phony pointers2.exe
 
 # =============================================================================
 # Built-in targets
