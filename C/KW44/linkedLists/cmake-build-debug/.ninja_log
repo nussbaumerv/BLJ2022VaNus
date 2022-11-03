@@ -1,19 +1,7 @@
 # ninja log v5
 2	84	6891647341358247	CMakeFiles/linkedLists.dir/main.c.obj	cb6385a5553daf26
-68	139	6891828162562109	linkedLists.exe	9ca02a51171246e7
-2	67	6891828161877167	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
+566	645	6891929995867995	linkedLists.exe	9ca02a51171246e7
+2	562	6891929995067197	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
 2	282	6891709022690317	build.ninja	11d8c08a3a935cfa
-1	62	6891828301539881	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-63	128	6891828302142156	linkedLists.exe	9ca02a51171246e7
-2	66	6891828405716376	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-70	140	6891828406422303	linkedLists.exe	9ca02a51171246e7
-2	64	6891828491981455	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-67	128	6891828492607347	linkedLists.exe	9ca02a51171246e7
-1	61	6891828689230795	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-64	126	6891828689841120	linkedLists.exe	9ca02a51171246e7
-2	62	6891828787545103	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-66	138	6891828788258387	linkedLists.exe	9ca02a51171246e7
-2	109	6891828878048121	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-112	184	6891828878756829	linkedLists.exe	9ca02a51171246e7
-2	63	6891829286882862	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
-64	126	6891829287477303	linkedLists.exe	9ca02a51171246e7
+2	574	6891932623965644	CMakeFiles/linkedLists.dir/linkedlist.c.obj	a39efa94ce86337d
+578	652	6891932624727687	linkedLists.exe	9ca02a51171246e7
