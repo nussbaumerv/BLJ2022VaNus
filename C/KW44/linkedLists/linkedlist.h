@@ -5,6 +5,6 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-void createNode();
+void launchNode();
 
 #endif //LINKEDLISTS_LINKEDLIST_H

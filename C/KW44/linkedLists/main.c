@@ -3,6 +3,6 @@
 #include "linkedlist.h"
 
 int main() {
-    createNode();
+    launchNode();
     return 0;
 }

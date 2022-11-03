@@ -16,19 +16,39 @@ void printNode(TNode* node)
     }
 }
 
-int createNode(){
-    TNode* first = (TNode*)malloc(sizeof(TNode));
-    TNode* second = (TNode*)malloc(sizeof(TNode));
-    TNode* third = (TNode*)malloc(sizeof(TNode));
+TNode* createNode(int newValue){
+    TNode* newNode = (TNode*)malloc(sizeof(TNode));
+    newNode->value = newValue;
+    newNode->nextNode = NULL;
+    return newNode;
+}
 
-    first->value = 45;
+TNode* addNode(int newValue, TNode* head){
+   /* while (head != NULL) {
+        head = head->nextNode;
+    }
+    */
+    TNode* newNode = (TNode*)malloc(sizeof(TNode));
+    newNode->value = newValue;
+    newNode->nextNode = NULL;
+
+    //head-> nextNode = newNode;
+
+
+}
+int launchNode(){
+    TNode* first = createNode(30);
+    TNode* second = createNode(360);
+    TNode* third = createNode(10);
+    TNode* forth = createNode(40);
+    TNode* fifth = createNode(130);
+
     first->nextNode = second;
-
-    second->value = 30;
     second->nextNode = third;
+    third->nextNode = forth;
+    forth->nextNode = fifth;
 
-    third-> value = 12;
-    third->nextNode = NULL;
+    addNode(12, first);
 
     printNode(first);
 }
