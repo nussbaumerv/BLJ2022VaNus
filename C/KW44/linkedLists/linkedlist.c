@@ -19,6 +19,23 @@ void printNode(TNode* node)
     printf("---------\n");
 }
 
+void printCertainNode(int index, TNode* head)
+{
+    int counter = 1;
+
+    if(index > 0) {
+            while (counter < index) {
+                head = head->nextNode;
+                counter++;
+            }
+            if(counter == index){
+                printf("%d | %d\n", counter, head->value);
+
+            }
+        }
+      printf("---------\n");
+    }
+
 TNode* createNode(int newValue){
     TNode* newNode = (TNode*)malloc(sizeof(TNode));
     newNode->value = newValue;
@@ -38,38 +55,51 @@ TNode* addNodeEnd(int newValue, TNode* head){
     }
 }
 
-TNode* delNodeN(int index, TNode** pp_head){
+TNode* delNode(int index, TNode** pp_head){
     int counter = 1;
     TNode* head = *pp_head;
     TNode* after = head-> nextNode;
 
-    if(index < 2){
-        pp_head = &(head-> nextNode);
-        free(head);
-    }
-    else {
-        while (counter < index - 1) {
-            head = head->nextNode;
-            after = head->nextNode;
-            counter++;
+    if(index > 0) {
+        if (index == 1) {
+            *pp_head = (head->nextNode);
+            free(head);
+        } else {
+            while (counter < index - 1) {
+                    head = head->nextNode;
+                    after = head->nextNode;
+                    counter++;
+            }
+
+            head->nextNode = after->nextNode;
         }
-
-        head->nextNode = after->nextNode;
     }
 
 }
 
-TNode* delNode(TNode* node, TNode* head){
-    while (head->nextNode != node) {
-        head = head->nextNode;
-    }
+TNode* addNodeIndex(int index, TNode** pp_head, int newValue){
+    int counter = 1;
+    TNode* head = *pp_head;
+    TNode* after = head-> nextNode;
+    TNode* added = createNode(newValue);
 
-    if(head->nextNode == node){
-        head->nextNode = node->nextNode;
-        free(node);
-    }
+    if(index > 0) {
+        if (index == 1) {
+            *pp_head = (added);
+            added->nextNode = head;
 
+        } else {
+            while (counter < index - 1) {
+                head = head->nextNode;
+                after = head->nextNode;
+                counter++;
+            }
+            head->nextNode = added;
+            added->nextNode = after;
+        }
+    }
 }
+
 int launchNode(){
     TNode* first = createNode(30);
     TNode* second = createNode(360);
@@ -89,7 +119,13 @@ int launchNode(){
     printNode(first);
 
     //delNode(second, first);
-    delNodeN(1, &first);
+    delNode(1, &first);
 
     printNode(first);
+
+    addNodeIndex(8, &first, 56);
+
+    printNode(first);
+
+    printCertainNode(3, first);
 }
