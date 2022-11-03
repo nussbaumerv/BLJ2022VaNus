@@ -10,10 +10,13 @@ typedef struct Node{
 
 void printNode(TNode* node)
 {
+    int counter = 0;
     while (node != NULL) {
-        printf("%d\n", node->value);
+        counter += 1;
+        printf("%d | %d\n", counter, node->value);
         node = node->nextNode;
     }
+    printf("---------\n");
 }
 
 TNode* createNode(int newValue){
@@ -23,17 +26,43 @@ TNode* createNode(int newValue){
     return newNode;
 }
 
-TNode* addNode(int newValue, TNode* head){
-   /* while (head != NULL) {
+TNode* addNodeEnd(int newValue, TNode* head){
+    TNode* newNode = createNode(newValue);
+
+   while (head->nextNode != NULL) {
+       head = head->nextNode;
+    }
+
+    if(head->nextNode == NULL) {
+        head->nextNode = newNode;
+    }
+}
+
+TNode* delNodeN(int index, TNode* head){
+    int counter = 2;
+    TNode* after = head-> nextNode;
+    while (counter < index) {
+        head = head->nextNode;
+        after = head->nextNode;
+        counter++;
+    }
+
+    if(counter == index){
+        head->nextNode = after->nextNode;
+        free(after);
+    }
+
+}
+
+TNode* delNode(TNode* node, TNode* head){
+    while (head->nextNode != node) {
         head = head->nextNode;
     }
-    */
-    TNode* newNode = (TNode*)malloc(sizeof(TNode));
-    newNode->value = newValue;
-    newNode->nextNode = NULL;
 
-    //head-> nextNode = newNode;
-
+    if(head->nextNode == node){
+        head->nextNode = node->nextNode;
+        free(node);
+    }
 
 }
 int launchNode(){
@@ -48,7 +77,14 @@ int launchNode(){
     third->nextNode = forth;
     forth->nextNode = fifth;
 
-    addNode(12, first);
+    addNodeEnd(12, first);
+    addNodeEnd(223, first);
+    addNodeEnd(1233, first);
+
+    printNode(first);
+
+    //delNode(second, first);
+    delNodeN(2, first);
 
     printNode(first);
 }
