@@ -38,18 +38,23 @@ TNode* addNodeEnd(int newValue, TNode* head){
     }
 }
 
-TNode* delNodeN(int index, TNode* head){
-    int counter = 2;
+TNode* delNodeN(int index, TNode** pp_head){
+    int counter = 1;
+    TNode* head = *pp_head;
     TNode* after = head-> nextNode;
-    while (counter < index) {
-        head = head->nextNode;
-        after = head->nextNode;
-        counter++;
-    }
 
-    if(counter == index){
+    if(index < 2){
+        pp_head = &(head-> nextNode);
+        free(head);
+    }
+    else {
+        while (counter < index - 1) {
+            head = head->nextNode;
+            after = head->nextNode;
+            counter++;
+        }
+
         head->nextNode = after->nextNode;
-        free(after);
     }
 
 }
@@ -84,7 +89,7 @@ int launchNode(){
     printNode(first);
 
     //delNode(second, first);
-    delNodeN(2, first);
+    delNodeN(1, &first);
 
     printNode(first);
 }
