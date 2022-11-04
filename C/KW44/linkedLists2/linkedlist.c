@@ -6,9 +6,14 @@
 #include "windows.h"
 
 typedef struct Node {
-    int value;
+    struct node *p_value;
     struct node *nextNode;
 } TNode;
+
+typedef struct Value{
+    int value;
+} TValue;
+
 
 int getLenght(TNode *head) {
     int counter = 0;
@@ -24,7 +29,8 @@ void printAllNodes(TNode *head) {
     printf("\n**********************************************************************************\n\n");
     while (head != NULL) {
         counter += 1;
-        printf("%d | %d\n", counter, head->value);
+        TValue *value = head->p_value;
+        printf("%d | %d\n", counter, value->value);
         head = head->nextNode;
     }
 }
@@ -39,7 +45,8 @@ void printCertainNode(TNode* head, int index) {
             counter++;
         }
         if (counter == index) {
-            printf("%d | %d\n", counter, head->value);
+            TValue *value = head->p_value;
+            printf("%d | %d\n", counter, value->value);
 
         }
     } else {
@@ -49,7 +56,9 @@ void printCertainNode(TNode* head, int index) {
 
 TNode *createNode(int newValue) {
     TNode *newNode = (TNode *) malloc(sizeof(TNode));
-    newNode->value = newValue;
+    TValue *Value = (TValue *) malloc(sizeof(TValue));
+    Value->value = newValue;
+    newNode->p_value = Value;
     newNode->nextNode = NULL;
     return newNode;
 }
@@ -103,7 +112,8 @@ TNode *updateCertainNode(TNode *head, int index, int newValue) {
             counter++;
         }
         if (counter == index) {
-            head->value = newValue;
+            TValue *value = head->p_value;
+            value->value = newValue;
         }
         printf("\nNode got successfully updated!\n");
     } else {
@@ -113,50 +123,57 @@ TNode *updateCertainNode(TNode *head, int index, int newValue) {
 
 void updateAllNodes(TNode *head, int newValue) {
     while (head != NULL) {
-        head->value = newValue;
+        TValue *value = head->p_value;
+        value->value = newValue;
         head = head->nextNode;
     }
     printf("\nList got successfully updated!\n");
+}
+
+
+void deleteAllNodes(TNode *head) {
+    int length = getLenght(head);
+   TNode* temp = head;
+   TValue *value = head->p_value;
+    for(int i = 0; i < length; i++) {
+        value = head->p_value;
+       temp = head->nextNode;
+       free(head);
+        free(value);
+       head = temp;
+    }
+    if(!head){
+        printf("\nList got successfully deleted!\n");
+    }
 }
 
 TNode *deleteSpecificNode(TNode **pp_head, int index) {
     int counter = 1;
     TNode *head = *pp_head;
     TNode *after = head->nextNode;
+    TValue *value = head->p_value;
+    int length = getLenght(head);
 
-    if (index > 0 && index <= getLenght(head)) {
-        if (index == 1) {
-            *pp_head = (head->nextNode);
-            free(head);
-        } else {
-            while (counter < index - 1) {
-                head = head->nextNode;
-                after = head->nextNode;
-                counter++;
+    if (index > 0 && index <= length) {
+            if (index == 1) {
+                *pp_head = (head->nextNode);
+                free(value);
+                free(head);
+            } else {
+                while (counter < index - 1) {
+                    head = head->nextNode;
+                    after = head->nextNode;
+                    counter++;
+                }
+
+                head->nextNode = after->nextNode;
             }
-
-            head->nextNode = after->nextNode;
-        }
-        printf("\nNode got successfully deleted!\n");
+            printf("\nNode got successfully deleted!\n");
     } else {
         printf("Enter a valid number");
     }
-
 }
 
-void deleteAllNodes(TNode *head) {
-    int length = getLenght(head);
-
-   TNode* temp = head;
-    for(int i = 0; i < length; i++) {
-       temp = head->nextNode;
-       free(head);
-        head = temp;
-    }
-    if(!head){
-        printf("\nList got successfully deleted!\n");
-    }
-}
 
 int scanIndex(){
     int index = 0;
@@ -175,11 +192,13 @@ int scanValue(){
 int launchNode() {
     int keepDoing = 1;
     int input = 0;
-    TNode *head = createNode(30);
+    printf("\n**********************************************************************************\n");
+    printf("Welcome to my program");
+    printf("\n**********************************************************************************\n\n");
+    printf("What should be the value of the first node?\n");
+    int firstValue = scanValue();
 
-
-    printf("Welcome to my program\n");
-
+    TNode *head = createNode(firstValue);
     do {
         printf("\nWhat feature do you want to use?\n\n");
         printf(""
@@ -228,7 +247,13 @@ int launchNode() {
             updateAllNodes(head, newValue);
         } else if (input == 8) {
             int index = scanIndex();
-            deleteSpecificNode(&head, index);
+            if(getLenght(head) == 1){
+                deleteAllNodes(head);
+                keepDoing = 0;
+            }
+            else {
+                deleteSpecificNode(&head, index);
+            }
         } else if (input == 9) {
             deleteAllNodes(head);
             keepDoing = 0;
