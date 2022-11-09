@@ -13,7 +13,7 @@ public class Person {
 
     public void printPerson() {
         System.out.println(firstname + " " + name + "\nEmail: " + email + "\nBestfriend: " + bestFriend);
-        System.out.println("--------------------------------------------------");
+        System.out.println("-------------------------------------");
     }
 
     public String getName() {
