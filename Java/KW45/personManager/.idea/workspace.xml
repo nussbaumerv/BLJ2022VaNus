@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf9e2fe5-31fa-4a1e-bdda-8ca5b5c57f20" name="Changes" comment="coded personManager">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/personManager/com/noseyoung/blj/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/personManager/com/noseyoung/blj/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/personManager/com/noseyoung/blj/Starter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/personManager/com/noseyoung/blj/Starter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/noseyoung/blj/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/noseyoung/blj/Person.java" afterDir="false" />
-    </list>
+    <list default="true" id="cf9e2fe5-31fa-4a1e-bdda-8ca5b5c57f20" name="Changes" comment="finished person Manager" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +48,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668000870770</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finished person Manager">
+      <created>1668006242980</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668006242980</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -69,6 +71,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="coded personManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="coded personManager" />
+    <MESSAGE value="finished person Manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished person Manager" />
   </component>
 </project>
