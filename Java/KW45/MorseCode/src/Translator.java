@@ -2,9 +2,9 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class Translator {
-    public static String translateToMorse(int method, String input) {
-        HashMap<String, String> morseMap = new HashMap<String, String>();
+    private HashMap<String, String> morseMap = new HashMap<String, String>();
 
+    public Translator() {
         morseMap.put("A", ".-");
         morseMap.put("B", "-...");
         morseMap.put("C", "-.-.");
@@ -44,7 +44,9 @@ public class Translator {
         morseMap.put("0", "-----");
 
         morseMap.put(" ", "/");
+    }
 
+    public String translateToMorse(int method, String input) {
         String before;
         String result = "";
         String translated = "";
@@ -55,7 +57,7 @@ public class Translator {
             for (int i = 0; i < inputArr.length; i++) {
                 before = Character.toString(inputArr[i]);
                 translated = morseMap.get(before);
-                if(translated == null || translated.isEmpty()){
+                if (translated == null || translated.isEmpty()) {
                     successful = false;
                 }
                 result = result + translated + " ";
@@ -69,7 +71,7 @@ public class Translator {
                 for (Entry<String, String> entry : morseMap.entrySet()) {
                     if (entry.getValue().equals(before)) {
                         translated = entry.getKey();
-                        if(translated == null || translated.isEmpty()){
+                        if (translated == null || translated.isEmpty()) {
                             successful = false;
                         }
                         result = result + translated;
@@ -77,11 +79,13 @@ public class Translator {
                     }
                 }
             }
+            if (result == null || result.isEmpty()) {
+                successful = false;
+            }
         }
-        if(successful){
+        if (successful) {
             return result;
-        }
-        else {
+        } else {
             return "Please enter Valid input";
         }
     }

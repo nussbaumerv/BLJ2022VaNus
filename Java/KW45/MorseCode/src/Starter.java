@@ -10,23 +10,24 @@ public class Starter {
         boolean keepDoing = true;
 
         do {
-            System.out.println("" +
-                    "1.  From Text to Morse\n" +
-                    "2.  From Morse to Text\n" +
-                    "3.  EXIT\n");
+            System.out.println("""
+                    1.  From Text to Morse
+                    2.  From Morse to Text
+                    3.  EXIT
+                    """);
             System.out.print("Enter specific number: ");
             int chooseFeautre = 0;
             boolean valid = true;
 
             try {
                 chooseFeautre = scan.nextInt();
-                scan.nextLine();
             }
             catch(InputMismatchException ime){
                 valid = false;
             }
+            scan.nextLine();
 
-            if(valid == true){
+            if(valid){
                 if(chooseFeautre == 1 || chooseFeautre == 2){
                     if(chooseFeautre == 1){
                         System.out.print("Enter Text: ");
@@ -57,7 +58,7 @@ public class Starter {
             }
             System.out.println("\n*************************************\n");
 
-        }while(keepDoing == true);
+        }while(keepDoing);
 
     }
 }
