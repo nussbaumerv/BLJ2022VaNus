@@ -14,7 +14,11 @@ public class Fish {
         this.positionY = y;
     }
     public void printFish(){
-        System.out.println(id + ". |  X: "+ positionX + " |  Y: "+ positionY+" |  Salty: " + salty + " |  Race: " + race);
+        String SaltyOut = "Sweet-water";
+        if(salty){
+            SaltyOut = "Saltwater";
+        }
+        System.out.println("\uD83D\uDC1F " + id + ". |  X: "+ positionX + " |  Y: "+ positionY+" |  " + SaltyOut + " |  Race: " + race);
     }
 
     public int getPositionX() {
