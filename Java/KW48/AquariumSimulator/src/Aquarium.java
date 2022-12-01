@@ -3,7 +3,6 @@ import java.util.*;
 public class Aquarium {
     private int columns;
     private int rows;
-
     private int rowsAvailable;
     private boolean salty;
     private int[][] aquarium;
@@ -50,7 +49,7 @@ public class Aquarium {
 
             for (int row = 0; row < aquarium.length; ++row) {
                 for (int col = 0; col < aquarium[row].length; ++col) {
-                    if (col == y && row == x) {
+                    if ((col == y && row == x) && (aquarium[row][col] == 0)){
                         aquarium[row][col] = 1;
                     }
                 }
@@ -59,9 +58,6 @@ public class Aquarium {
     }
 
     public void printAquarium() {
-        for (int i = 0; i < (2+columns); i++) {
-            System.out.print("⬜ ");
-        }
         System.out.println("");
         String aquariumAsString = Arrays.deepToString(aquarium);
         aquariumAsString = aquariumAsString.replace("[[", "⬜ ").replace("], [", " ⬜\n⬜ ").replace(", ", " ").replace("]]",
@@ -76,6 +72,18 @@ public class Aquarium {
 
     public boolean isSalty() {
         return salty;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRowsAvailable(int rowsAvailable) {
+        this.rowsAvailable = rowsAvailable;
     }
 }
 

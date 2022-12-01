@@ -4,73 +4,86 @@ public class Starter {
     public static void addFish(ArrayList<Fish> fishs, Aquarium aquarium, int fishCount) {
         Scanner scan = new Scanner(System.in);
         String race;
-        int x;
-        int y;
+        int x = 0;
+        int y = 0;
+        boolean valid = true;
 
-        System.out.print("Enter the Race: ");
+
+        System.out.print("Enter the Fish's name: ");
         race = scan.nextLine();
 
-        System.out.print("Enter X: ");
-        x = scan.nextInt();
-        scan.nextLine();
-
-        System.out.print("Enter Y: ");
-        y = scan.nextInt();
-        scan.nextLine();
-
-
-
-        System.out.println("\nIn what water Type should your Fish live?");
-        System.out.println("\n" +
-                "1.  Saltwater\n" +
-                "2.  Sweet-water\n");
-        System.out.print("Enter specific number: ");
-        int water = 0;
-        boolean salty;
-        boolean valid = true;
+        System.out.print("Enter column (X): ");
         try {
-            water = scan.nextInt();
+            x = scan.nextInt();
         } catch (InputMismatchException ime) {
             valid = false;
         }
         scan.nextLine();
 
-        if (water == 1) {
-            water = 1;
-            salty = true;
-        } else if (water == 2) {
-            water = 2;
-            salty = false;
-        } else if (valid == false) {
-            System.out.println("Invalid Input\n Saltwater was chosen.");
-            salty = true;
-        } else {
-            System.out.println("Invalid Input\n Saltwater was chosen.");
-            salty = true;
+        System.out.print("Enter row (Y): ");
+        try {
+            y = scan.nextInt();
+        } catch (InputMismatchException ime) {
+            valid = false;
         }
-        if(aquarium.checkIfFree(x,y) == 0) {
-            if (aquarium.isSalty() == salty) {
-                Fish fish = new Fish(fishCount, salty, race, x, y);
-                fishs.add(fish);
-            } else {
-                System.out.println("\nOh no. \uD83D\uDC80 \nYour fish died because you chose the wrong water type");
+        scan.nextLine();
+
+        if ((aquarium.getColumns() > x) && (aquarium.getRows() > y) && (valid == true)) {
+
+            System.out.println("\nIn what water Type should your Fish live?");
+            System.out.println("\n" +
+                    "1.  Saltwater\n" +
+                    "2.  Freshwater\n");
+            System.out.print("Enter specific number: ");
+            int water = 0;
+            boolean salty;
+            valid = true;
+            try {
+                water = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                valid = false;
             }
-        }
-        else if(aquarium.checkIfFree(x,y) == 1){
-            System.out.println("\nOh no. \uD83D\uDC1F \nAt that position is already a fish!");
-        }
-        else{
-            System.out.println("\nOh no. \uD83D\uDC80 \nYour fish can only live in water!");
+            scan.nextLine();
+
+
+            if (water == 1) {
+                water = 1;
+                salty = true;
+            } else if (water == 2) {
+                water = 2;
+                salty = false;
+            } else if (valid == false) {
+                System.out.println("Invalid Input\n Saltwater was chosen.");
+                salty = true;
+            } else {
+                System.out.println("Invalid Input\n Saltwater was chosen.");
+                salty = true;
+            }
+            if (aquarium.checkIfFree(y, x) == 0) {
+                if (aquarium.isSalty() == salty) {
+                    Fish fish = new Fish(fishCount, salty, race, y, x);
+                    fishs.add(fish);
+                } else {
+                    System.out.println("\nOh no. \uD83D\uDC80 \nYour fish died because you chose the wrong water type");
+                }
+            } else if (aquarium.checkIfFree(y, x) == 1) {
+                System.out.println("\nOh no. \uD83D\uDC1F \nAt that position is already a fish!");
+            } else {
+                System.out.println("\nOh no. \uD83D\uDC80 \nYour fish can only live in water!");
+            }
+        } else {
+            System.out.println("\nPlease enter a valid input!");
         }
 
     }
 
-    public static void moveFish(ArrayList<Fish> fishs) {
+    public static void moveFish(Aquarium aquarium, ArrayList<Fish> fishs) {
         if (fishs.size() >= 1) {
             Scanner scan = new Scanner(System.in);
-            int id;
-            int xAfter;
-            int yAfter;
+            int id = 0;
+            int xAfter = 0;
+            int yAfter = 0;
+            boolean valid = true;
 
             System.out.println("Move Fish");
 
@@ -79,22 +92,46 @@ public class Starter {
             }
 
             System.out.print("Enter Number of the Fish: ");
-            id = scan.nextInt();
+            try {
+                id = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                valid = false;
+            }
             scan.nextLine();
 
             System.out.print("Enter X of Fish's destination: ");
-            xAfter = scan.nextInt();
+
+            try {
+                xAfter = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                valid = false;
+            }
             scan.nextLine();
 
-            System.out.print("Enter X of Fish's destination: ");
-            yAfter = scan.nextInt();
+            System.out.print("Enter Y of Fish's destination: ");
+            try {
+                yAfter = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                valid = false;
+            }
             scan.nextLine();
+            if ((aquarium.getColumns() > xAfter) && (aquarium.getRows() > yAfter) && (fishs.size() >= id) && (valid == true)) {
 
-            for (int i = 0; i < fishs.size(); i++) {
-                if (fishs.get(i).getId() == id) {
-                    fishs.get(i).setPositionX(xAfter);
-                    fishs.get(i).setPositionY(yAfter);
+                for (int i = 0; i < fishs.size(); i++) {
+                    if (fishs.get(i).getId() == id) {
+                        if (aquarium.checkIfFree(xAfter, yAfter) == 0) {
+                            fishs.get(i).setPositionX(xAfter);
+                            fishs.get(i).setPositionY(yAfter);
+                        } else if (aquarium.checkIfFree(xAfter, yAfter) == 1) {
+                            System.out.println("\nOh no. \uD83D\uDC1F \nAt that position is already a fish!");
+                        } else {
+                            System.out.println("\nOh no. \uD83D\uDC80 \nYour fish can only live in water!");
+                        }
+                    }
                 }
+            }
+            else{
+                System.out.println("\nPlease enter a valid input!");
             }
         } else {
             System.out.println("\nCreate a Fish first.");
@@ -104,9 +141,10 @@ public class Starter {
     public static void removeFish(ArrayList<Fish> fishs) {
         if (fishs.size() >= 1) {
             Scanner scan = new Scanner(System.in);
-            int id;
-            int xAfter;
-            int yAfter;
+            int id = 0;
+            int xAfter = 0;
+            int yAfter = 0;
+            boolean valid = true;
 
             System.out.println("Remove Fish");
 
@@ -115,13 +153,21 @@ public class Starter {
             }
 
             System.out.print("Enter Number of the Fish: ");
-            id = scan.nextInt();
-            scan.nextLine();
 
-            for (int i = 0; i < fishs.size(); i++) {
-                if (fishs.get(i).getId() == id) {
-                    fishs.remove(i);
+            try {
+                id = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                valid = false;
+            }
+            scan.nextLine();
+            if((fishs.size() >= id) && (valid == true)) {
+                for (int i = 0; i < fishs.size(); i++) {
+                    if (fishs.get(i).getId() == id) {
+                        fishs.remove(i);
+                    }
                 }
+            } else{
+                System.out.println("\nPlease enter a valid input!");
             }
         } else {
             System.out.println("\nCreate a Fish first.");
@@ -138,7 +184,61 @@ public class Starter {
         }
     }
 
-    public static Aquarium createAquarium(){
+    public static int fillment(int cols, int rows) {
+        Scanner scan = new Scanner(System.in);
+        int volume = cols * rows;
+
+        System.out.println("\nYour Aquarium has a Capacity of " + volume + "l. \nWhat water level do you want");
+        System.out.println("\n" +
+                "1.  20% (" + (volume * 0.2) + "l)\n" +
+                "2.  40% (" + (volume * 0.4) + "l)\n" +
+                "3.  60% (" + (volume * 0.6) + "l)\n" +
+                "4.  80% (" + (volume * 0.8) + "l)\n" +
+                "5.  100% (" + (volume) + "l)\n");
+        System.out.print("Enter specific number: ");
+
+        int fillment = 0;
+        double yAvailable;
+        boolean valid = true;
+        try {
+            fillment = scan.nextInt();
+        } catch (InputMismatchException ime) {
+            valid = false;
+        }
+        scan.nextLine();
+
+        if (fillment == 1) {
+            yAvailable = rows * 0.2;
+        } else if (fillment == 2) {
+            yAvailable = rows * 0.4;
+        } else if (fillment == 3) {
+            yAvailable = rows * 0.6;
+        } else if (fillment == 4) {
+            yAvailable = rows * 0.8;
+        } else if (fillment == 5) {
+            yAvailable = rows;
+        } else if (valid == false) {
+            System.out.println("Invalid Input\n100% was chosen.");
+            yAvailable = rows;
+        } else {
+            System.out.println("Invalid Input\n100% was chosen.");
+            yAvailable = rows;
+        }
+        int rowsAvailable = (int) yAvailable;
+        return rowsAvailable;
+    }
+
+    public static void changeFillment(Aquarium aquarium, ArrayList<Fish> fishs) {
+        int rows = aquarium.getRows();
+        int cols = aquarium.getColumns();
+
+        int rowsAvailable = fillment(cols, rows);
+
+        aquarium.setRowsAvailable(rowsAvailable);
+        aquarium.updateAquarium(fishs);
+    }
+
+    public static Aquarium createAquarium() {
         Scanner scan = new Scanner(System.in);
         int cols = 20;
         int rows = 10;
@@ -165,49 +265,12 @@ public class Starter {
             cols = 20;
             rows = 10;
         }
-        int volume = cols * rows;
-        System.out.println("You Aquarium ha a Capacity of " + volume + "l. \nHow many Percent do you want to fill it?");
-        System.out.println("\n" +
-                "1.  20%\n" +
-                "2.  40%\n" +
-                "3.  60%\n" +
-                "4.  80%\n" +
-                "5.  100%\n");
-        System.out.print("Enter specific number: ");
 
-        int fillment = 0;
-        double yAvailable;
-        valid = true;
-        try {
-            fillment = scan.nextInt();
-        } catch (InputMismatchException ime) {
-            valid = false;
-        }
-        scan.nextLine();
-
-        if (fillment == 1) {
-            yAvailable = rows * 0.2;
-        } else if (fillment == 2) {
-            yAvailable = rows * 0.4;
-        }  else if (fillment == 3) {
-            yAvailable = rows * 0.6;
-        } else if (fillment == 4) {
-            yAvailable = rows * 0.8;
-        } else if (fillment == 5) {
-            yAvailable = rows;
-        }else if (valid == false) {
-            System.out.println("Invalid Input\n100% was chosen.");
-            yAvailable = rows;
-        } else {
-            System.out.println("Invalid Input\n100% was chosen.");
-            yAvailable = rows;
-        }
-        int rowsAvailable = (int)yAvailable;
 
         System.out.println("\nWhat water Type do you want?");
         System.out.println("\n" +
                 "1.  Saltwater\n" +
-                "2.  Sweet-water\n");
+                "2.  Freshwater\n");
         System.out.print("Enter specific number: ");
         int water = 0;
         boolean salty;
@@ -233,6 +296,8 @@ public class Starter {
             salty = true;
         }
 
+        int rowsAvailable = fillment(cols, rows);
+
         Aquarium aquarium = new Aquarium(salty, cols, rows, rowsAvailable);
         return aquarium;
     }
@@ -256,7 +321,7 @@ public class Starter {
                     "3.  Move Fish\n" +
                     "4.  Remove Fish\n" +
                     "5.  Print Information about your fish\n" +
-                    "6.  Change capacity\n" +
+                    "6.  Change water level\n" +
                     "7.  Exit\n");
             System.out.print("Enter specific number: ");
             int option = 0;
@@ -278,16 +343,16 @@ public class Starter {
                 fishCount++;
                 addFish(fishs, aquarium, fishCount);
             } else if (option == 3) {
-                moveFish(fishs);
+                moveFish(aquarium, fishs);
             } else if (option == 4) {
                 removeFish(fishs);
             } else if (option == 5) {
                 infoFish(fishs);
             } else if (option == 6) {
-
-            }else if (option == 7) {
+                changeFillment(aquarium, fishs);
+            } else if (option == 7) {
                 keepDoing = false;
-            }  else {
+            } else {
                 System.out.println("Please Enter a valid input");
             }
         }
