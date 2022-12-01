@@ -20,7 +20,6 @@ public class Main {
 
         int resultMin = computeMinuteHandAngle(minute);
         System.out.println(resultMin + "°");
-
     }
 
 }
