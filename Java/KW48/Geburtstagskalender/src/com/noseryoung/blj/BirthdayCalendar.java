@@ -4,7 +4,6 @@ import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.lang.Math;
 
-
 public class BirthdayCalendar {
     public static final int YEAR = 2022;
 
@@ -46,7 +45,7 @@ public class BirthdayCalendar {
         persArr[i++] = new Person(2002, 11, 13, "Tsering Lhamo");
         persArr[i++] = new Person(2006, 11, 13, "Nikhil");
         persArr[i++] = new Person(2006, 11, 23, "Dylan");
-        persArr[i++] = new Person(1999, 12, 2, "Jasmin");
+        persArr[i++] = new Person(1999, 12, 12, "Jasmin");
         persArr[i++] = new Person(2006, 12, 16, "Richard");
         persArr[i++] = new Person(2001, 12, 19, "Sairam");
         persArr[i++] = new Person(2006, 12, 26, "Aabish");
