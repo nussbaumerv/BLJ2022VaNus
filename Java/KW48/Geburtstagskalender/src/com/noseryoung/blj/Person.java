@@ -1,8 +1,4 @@
 package com.noseryoung.blj;
-
-
-import java.time.LocalDate;
-
 public class Person {
     private int year;
     private int month;
@@ -27,7 +23,6 @@ public class Person {
     public int getDay() {
         return day;
     }
-
     public String getName() {
         return name;
     }
