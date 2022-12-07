@@ -15,15 +15,19 @@ public class BirthdayCalendar {
         int i = 0;
        String line = "";
        String splitBy = ";";
+       String path = "C:\\Source\\BLJ2022VaNus\\Java\\KW48\\Geburtstagskalender\\src\\com\\noseryoung\\blj\\Data\\data.csv";
        try
        {
-           BufferedReader br = new BufferedReader(new FileReader("C:\\Source\\BLJ2022VaNus\\Java\\KW48\\Geburtstagskalender\\src\\com\\noseryoung\\blj\\Data\\data.csv"));
+           BufferedReader br = new BufferedReader(new FileReader(path));
            while ((line = br.readLine()) != null) {
                String[] person = line.split(splitBy);
+
                int year = Integer.parseInt(person[1]);
                int month = Integer.parseInt(person[2]);
                int day = Integer.parseInt(person[3]);
-               persArr[i++] = new Person(year,month,day,person[0]);
+               String name = person[0];
+
+               persArr[i++] = new Person(year,month,day,name);
            }
        }
        catch (IOException e)
