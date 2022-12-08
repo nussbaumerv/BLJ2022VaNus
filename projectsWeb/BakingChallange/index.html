@@ -16,6 +16,34 @@
         img {
             width: 40vw;
         }
+
+        .ingredients {
+            text-align: left;
+        }
+
+        .tableAmount,
+        .tableText {
+            font-size: 20px;
+
+        }
+
+        .tableAmount {
+            text-align: left;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+
+        .tableText {
+            text-align: left;
+        }
+
+        .imgText {
+            width: 100%;
+        }
+
+        p {
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -23,9 +51,9 @@
     <br>
     <h1>The best "Mailänderli" in Town</h1>
     <br>
-    <div class="container text-center">
+    <div class="container">
         <div class="row">
-            <div class="col-sm ingredients">
+            <div class="col-md ingredients">
                 <h2>Ingredients</h2>
                 <select id="ingredientAmount" class="form-select" onchange="changeIngredients();">
                     <option selected value="40">For 40 Mailänderli</option>
@@ -38,59 +66,59 @@
                         <td class="tableAmount">
                             <t id="amountButter">100</t>g
                         </td>
-                        <td>Butter</td>
+                        <td class="tableText">butter</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountSugar">125</t>g
                         </td>
-                        <td>Sugar</td>
+                        <td class="tableText">sugar</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountSalt">1</t> pinch
                         </td>
-                        <td>salt</td>
+                        <td class="tableText">salt</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountLemon">0.5</t> tbsp
                         </td>
-                        <td>lemon juice</td>
+                        <td class="tableText">lemon juice</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountEggs">1</t>
                         </td>
-                        <td>egg</td>
+                        <td class="tableText">egg</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountFlour">250</t>g
                         </td>
-                        <td>Flour</td>
+                        <td class="tableText">Flour</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountBakingPowder">0.5</t> tsp
                         </td>
-                        <td>baking powder</td>
+                        <td class="tableText">baking powder</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountYolks">2</t>
                         </td>
-                        <td>yolks</td>
+                        <td class="tableText">yolks</td>
                     </tr>
                     <tr>
                         <td class="tableAmount">
                             <t id="amountWater">1</t> tbsp
                         </td>
-                        <td>water</td>
+                        <td class="tableText">water</td>
                     </tr>
                 </table>
             </div>
-            <div class="col-sm img">
+            <div class="col-md img">
                 <img src="img/start.jpg">
             </div>
         </div>
@@ -101,10 +129,117 @@
     <div class="image">
 
     </div>
+    <br>
     <h2>Instructions</h2>
 
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md">
+                <p>The first thing we need to do is gather all the ingredients we need and measure them correctly. For
+                    this we use the ingredients table above.</p>
+            </div>
+            <div class="col-4">
+                <img class="imgText" src="img/allProducts.jpg">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <img class="imgText" src="img/sugar.jpg">
+            </div>
+            <div class="col-md">
+                <p>First, add warm butter and sugar to a bowl. With a mixer mix the butter and the sugar for about
+                    10 minutes until an airy, light mass is formed.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md">
+                <p>After that add salt, lemon juice and egg. Continue to mix with the mixer until an even fluffy
+                    mass is formed.</p>
+            </div>
+            <div class="col-4">
+                <img class="imgText" src="img/mix.jpg">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <img class="imgText" src="img/flour.jpg">
+            </div>
+            <div class="col-md">
+                <p>The properly measured flour and baking powder are now also added to the mass. Then try to mix the
+                    mass by hand into a dough without kneading it.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md">
+                <p>Cover the dough with cling film and refrigerate for 1-2 hours.</p>
+            </div>
+            <div class="col-4">
+                <img class="imgText" src="img/fridge.jpg">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <img class="imgText" src="img/press.jpg">
+            </div>
+            <div class="col-md">
+                <p>After 1-2 hours, take the dough out of the fridge and roll it out between two pieces of baking paper
+                    to a thickness of 7-10 mm. Be careful not to overheat the dough as this will make cutting out more
+                    difficult.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md">
+                <p>First place parchment paper on the tray. Find the right shapes to cut out of the dough. Then
+                    start cutting out the dough and place the cut out biscuits on the tray. Also, make sure that you cut
+                    them out as efficiently as possible. If you can't cut out another one, form the dough back into a
+                    ball and roll it out again. Repeat this process until there is no more dough left. When done,
+                    refrigerate the tray for about 30 minutes.</p>
+            </div>
+            <div class="col-4">
+                <img class="imgText" src="img/forms.jpg">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <img class="imgText" src="img/paint.jpg">
+            </div>
+            <div class="col-md">
+                <p>After 30 minutes, mix the egg yolk with the water and brush the biscuits with it 2-3 times. The
+                    cookies should turn a nice yellow.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md">
+                <p>Heat the oven to 175 °C with bottom/top heat. When the oven has reached 175°C, bake the cookies on
+                    the middle of the oven for 12-15 minutes.</p>
+            </div>
+            <div class="col-4">
+                <img class="imgText" src="img/backing.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-4">
+            <img class="imgText" src="img/finish.jpg">
+        </div>
+        <div class="col-md">
+            <p>After 12-15 minutes the biscuits should look like this and now only the taste test is left.</p>
+        </div>
+    </div>
+    <br>
+
+
+
     <script>
-        function changeIngredients(){
+        function changeIngredients() {
             var multiplier = document.getElementById("ingredientAmount").value;
             document.getElementById("amountButter").innerHTML = multiplier * 2.5;
             document.getElementById("amountSugar").innerHTML = multiplier * 3.125;
