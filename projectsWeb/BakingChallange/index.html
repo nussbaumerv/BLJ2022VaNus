@@ -17,6 +17,13 @@
             font-family: 'Mountains of Christmas', cursive;
         }
 
+        .fontSwitch{
+            position: absolute;
+            top:10px;
+            right:10px;
+            cursor: pointer;
+        }
+
         .topImg {
             width: 100%;
         }
@@ -40,7 +47,7 @@
         .tableText {
             text-align: left;
             padding: 5px 40px;
-            color:#666666
+            color: #666666
         }
 
         .imgText {
@@ -49,7 +56,7 @@
 
         p {
             font-size: 20px;
-            color:#666666;
+            color: #666666;
         }
 
         #footer {
@@ -76,6 +83,7 @@
 </head>
 
 <body>
+    <span onclick="switchFont()" class="fontSwitch">Switch font</span>
     <br>
     <h1>The best "Mailänderli" in Town</h1>
     <h5>By Valentin Nussbaumer</h5>
@@ -288,6 +296,13 @@
     </div>
 
     <script>
+        function switchFont(){
+        if ( document.body.style.fontFamily == "arial"){
+            document.body.style.fontFamily = "'Mountains of Christmas', cursive";
+        }else{
+            document.body.style.fontFamily = "arial";
+        }
+        }
         function changeIngredients() {
             var multiplier = document.getElementById("ingredientAmount").value;
             document.getElementById("amountButter").innerHTML = multiplier * 2.5;
