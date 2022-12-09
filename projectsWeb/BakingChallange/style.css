@@ -54,6 +54,19 @@ a:hover{
     font-size: 25px;
     transition: font-size .3s;
 }
+.button{
+    border:solid;
+    border-width:0.5px;
+    background-color:#e6e6e6;
+    transition: background-color .4s;
+    border-color:#424241;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.button:hover{
+    background-color: #b0b0b0;
+
+}
 .closeButton:hover{
     font-size: 30px;
 }
@@ -80,11 +93,6 @@ a:hover{
 p {
     font-size: 20px;
     color: #666666;
-}
-
-.downloadLink{
-    font-size: 20px;
-    text-decoration: none;
 }
 
 #footer {
@@ -114,6 +122,9 @@ p {
     font-size: 18px;
     text-align: center;
     justify-content:center;
+}
+.topImg{
+    width: 60vw;
 }
 #ingredientsContainer{
     width: 100vw;
