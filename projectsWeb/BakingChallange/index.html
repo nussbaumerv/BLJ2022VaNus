@@ -10,90 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
-    <title>Document</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: 'Mountains of Christmas', cursive;
-        }
-
-        a{
-            color: #424241;
-        }
-
-        a:hover{
-            color:black;
-        }
-
-        .fontSwitch{
-            position: absolute;
-            top:10px;
-            right:10px;
-            cursor: pointer;
-        }
-
-        .topImg {
-            width: 100%;
-        }
-
-        .ingredients {
-            text-align: left;
-        }
-
-        .tableAmount,
-        .tableText {
-            font-size: 25px;
-
-        }
-
-        .tableAmount {
-            text-align: left;
-            font-weight: bold;
-            padding: 5px 0px;
-        }
-
-        .tableText {
-            text-align: left;
-            padding: 5px 40px;
-            color: #666666
-        }
-
-        .imgText {
-            width: 100%;
-        }
-
-        p {
-            font-size: 20px;
-            color: #666666;
-        }
-
-        .downloadLink{
-            font-size: 20px;
-            text-decoration: none;
-        }
-
-        #footer {
-            color: black;
-            padding: 3vw 0vw 3vw 0vw;
-            width: 100%;
-            background-color: #e6e6e6;
-        }
-
-        #footer a {
-            color: #424241;
-            text-decoration: none;
-        }
-
-        #footer a:hover {
-            color: #b0b0b0;
-        }
-
-        #footer img {
-            width: 80px;
-            height: 80px;
-        }
-
-    </style>
+    <title>My Recipe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="snow.js"></script>
 </head>
 
 <body>
@@ -102,84 +21,79 @@
     <h1>The best "Mailänderli" in Town</h1>
     <h5>By Valentin Nussbaumer</h5>
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 ingredients">
-                <h2>Ingredients</h2>
-                <select id="ingredientAmount" style="width:auto;" class="form-select" onchange="changeIngredients();">
-                    <option selected value="40">For 40 Mailänderli</option>
-                    <option value="80">For 80 Mailänderli</option>
-                    <option value="120">For 120 Mailänderli</option>
-                    <option value="180">For 180 Mailänderli</option>
-                </select>
-                <table>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountButter">100</t>g
-                        </td>
-                        <td class="tableText">butter</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountSugar">125</t>g
-                        </td>
-                        <td class="tableText">sugar</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountSalt">1</t> pinch
-                        </td>
-                        <td class="tableText">salt</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountLemon">0.5</t> tbsp
-                        </td>
-                        <td class="tableText">lemon juice</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountEggs">1</t>
-                        </td>
-                        <td class="tableText">egg</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountFlour">250</t>g
-                        </td>
-                        <td class="tableText">Flour</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountBakingPowder">0.5</t> tsp
-                        </td>
-                        <td class="tableText">baking powder</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountYolks">2</t>
-                        </td>
-                        <td class="tableText">yolks</td>
-                    </tr>
-                    <tr>
-                        <td class="tableAmount">
-                            <t id="amountWater">1</t> tbsp
-                        </td>
-                        <td class="tableText">water</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md">
-                <img class="topImg" src="img/start.jpg">
-            </div>
+    <div id="ingredientsContainer">
+        <span class="closeButton" onclick="closeIngredients()">&#10006;</span>
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <select id="ingredientAmount" style="width:auto;" class="form-select"
+                onchange="changeIngredients();">
+                <option selected value="40">For 40 Mailänderli</option>
+                <option value="80">For 80 Mailänderli</option>
+                <option value="120">For 120 Mailänderli</option>
+                <option value="200">For 200 Mailänderli</option>
+            </select>
+            <table class="tTable">
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountButter">100</t>g
+                    </td>
+                    <td class="tableText">butter</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountSugar">125</t>g
+                    </td>
+                    <td class="tableText">sugar</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountSalt">1</t> pinch
+                    </td>
+                    <td class="tableText">salt</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountLemon">0.5</t> tbsp
+                    </td>
+                    <td class="tableText">lemon juice</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountEggs">1</t>
+                    </td>
+                    <td class="tableText">egg</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountFlour">250</t>g
+                    </td>
+                    <td class="tableText">Flour</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountBakingPowder">0.5</t> tsp
+                    </td>
+                    <td class="tableText">baking powder</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountYolks">2</t>
+                    </td>
+                    <td class="tableText">yolks</td>
+                </tr>
+                <tr>
+                    <td class="tableAmount">
+                        <t id="amountWater">1</t> tbsp
+                    </td>
+                    <td class="tableText">water</td>
+                </tr>
+            </table>
+            <br><br><br>
         </div>
     </div>
-    <div class="ingredients">
-
-    </div>
-    <div class="image">
-
-    </div>
+    <img class="topImg" src="img/start.jpg">
+    <br><br>
+    <button onclick="showIngredients()">Show Ingredients</button>
     <br><br>
     <h2>Instructions</h2>
 
@@ -312,12 +226,18 @@
     </div>
 
     <script>
-        function switchFont(){
-        if ( document.body.style.fontFamily == "arial"){
-            document.body.style.fontFamily = "'Mountains of Christmas', cursive";
-        }else{
-            document.body.style.fontFamily = "arial";
+        function showIngredients(){
+            document.getElementById("ingredientsContainer").style.display = "inherit";
         }
+        function closeIngredients(){
+            document.getElementById("ingredientsContainer").style.display = "none";
+        }
+        function switchFont() {
+            if (document.body.style.fontFamily == "arial") {
+                document.body.style.fontFamily = "'Mountains of Christmas', cursive";
+            } else {
+                document.body.style.fontFamily = "arial";
+            }
         }
         function changeIngredients() {
             var multiplier = document.getElementById("ingredientAmount").value;
