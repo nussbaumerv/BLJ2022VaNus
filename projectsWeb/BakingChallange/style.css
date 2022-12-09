@@ -24,6 +24,31 @@ a:hover{
     width: 40%;
 }
 
+#viewImageContainer{
+    width: 50vw;
+    height: 70vh;
+    position: fixed;
+    top:0px;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#viewImage{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+#imageViewContent{
+    width: auto;
+    max-height: 80vh;
+}
+
 
 #ingredientsContainer{
     width: 50vw;
@@ -88,6 +113,7 @@ a:hover{
 
 .imgText {
     width: 100%;
+    cursor: pointer;
 }
 
 p {
@@ -124,10 +150,13 @@ p {
     justify-content:center;
 }
 .topImg{
-    width: 60vw;
+    width: 80vw;
 }
 #ingredientsContainer{
     width: 100vw;
     height: 100vh;
+}
+#imageViewContent{
+    max-width: 80vw;
 }
 }

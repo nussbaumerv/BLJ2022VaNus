@@ -21,6 +21,7 @@
     <h1>The best "Mailänderli" in Town</h1>
     <h5>By Valentin Nussbaumer</h5>
     <br>
+    <div id="viewImageContainer"><div id="viewImage"><span class="closeButton" onclick="closeImg()">&#10006;</span><img id="imageViewContent" src=""></div></div>
     <div id="ingredientsContainer">
         <span class="closeButton" onclick="closeIngredients()">&#10006;</span>
         <div class="ingredients">
@@ -104,13 +105,13 @@
                     this we use the ingredients table above.</p>
             </div>
             <div class="col-4">
-                <img class="imgText" src="img/allProducts.jpg">
+                <img onclick="viewImage('img/allProducts.jpg')" class="imgText" src="img/allProducts.jpg">
             </div>
         </div>
         <br>
         <div class="row justify-content-center align-items-center">
             <div class="col-4">
-                <img class="imgText" src="img/sugar.jpg">
+                <img onclick="viewImage('img/sugar.jpg')" class="imgText" src="img/sugar.jpg">
             </div>
             <div class="col-md">
                 <p>First, add warm butter and sugar to a bowl. With a mixer mix the butter and the sugar for about
@@ -124,13 +125,13 @@
                     mass is formed.</p>
             </div>
             <div class="col-4">
-                <img class="imgText" src="img/mix.jpg">
+                <img onclick="viewImage('img/mix.jpg')" class="imgText" src="img/mix.jpg">
             </div>
         </div>
         <br>
         <div class="row justify-content-center align-items-center">
             <div class="col-4">
-                <img class="imgText" src="img/flour.jpg">
+                <img onclick="viewImage('img/flour.jpg')" class="imgText" src="img/flour.jpg">
             </div>
             <div class="col-md">
                 <p>The properly measured flour and baking powder are now also added to the mass. Then try to mix the
@@ -143,13 +144,13 @@
                 <p>Cover the dough with cling film and refrigerate for 1-2 hours.</p>
             </div>
             <div class="col-4">
-                <img class="imgText" src="img/fridge.jpg">
+                <img onclick="viewImage('img/fridge.jpg')" class="imgText" src="img/fridge.jpg">
             </div>
         </div>
         <br>
         <div class="row justify-content-center align-items-center">
             <div class="col-4">
-                <img class="imgText" src="img/press.jpg">
+                <img onclick="viewImage('img/press.jpg')" class="imgText" src="img/press.jpg">
             </div>
             <div class="col-md">
                 <p>After 1-2 hours, take the dough out of the fridge and roll it out between two pieces of baking paper
@@ -167,13 +168,13 @@
                     refrigerate the tray for about 30 minutes.</p>
             </div>
             <div class="col-4">
-                <img class="imgText" src="img/forms.jpg">
+                <img onclick="viewImage('img/forms.jpg')" class="imgText" src="img/forms.jpg">
             </div>
         </div>
         <br>
         <div class="row justify-content-center align-items-center">
             <div class="col-4">
-                <img class="imgText" src="img/paint.jpg">
+                <img onclick="viewImage('img/paint.jpg')" class="imgText" src="img/paint.jpg">
             </div>
             <div class="col-md">
                 <p>After 30 minutes, mix the egg yolk with the water and brush the biscuits with it 2-3 times. The
@@ -187,13 +188,13 @@
                     the middle of the oven for 12-15 minutes.</p>
             </div>
             <div class="col-4">
-                <img class="imgText" src="img/backing.jpg">
+                <img onclick="viewImage('img/backing.jpg')" class="imgText" src="img/backing.jpg">
             </div>
         </div>
         <br>
         <div class="row justify-content-center align-items-center">
             <div class="col-4">
-                <img class="imgText" src="img/finish.jpg">
+                <img onclick="viewImage('img/finish.jpg')" class="imgText" src="img/finish.jpg">
             </div>
             <div class="col-md">
                 <p>After 12-15 minutes the biscuits should look like this and now only the taste test is left.</p>
@@ -227,6 +228,13 @@
     </div>
 
     <script>
+        function viewImage(path){
+            document.getElementById("imageViewContent").src = path;
+            document.getElementById("viewImageContainer").style.display = "inherit";
+        }
+        function closeImg(){
+            document.getElementById("viewImageContainer").style.display = "none";
+        }
         function showIngredients(){
             document.getElementById("ingredientsContainer").style.display = "inherit";
         }
