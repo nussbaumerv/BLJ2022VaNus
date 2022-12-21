@@ -34,7 +34,7 @@ public class Main {
                     if (answer) {
                         System.out.println("\nNice job!");
                         System.out.println("You were able to solve it in " + counter + " tries\n");
-                        try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/insert.php?name="+ name + "&score=" + counter + "").openStream())) {
+                        try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/api/insert.php?name="+ name + "&score=" + counter + "").openStream())) {
                             System.out.println(s.useDelimiter("\\A").next());
                         }
                         exit = true;
@@ -65,8 +65,12 @@ public class Main {
             System.out.println("");
             System.out.println("\033[0;107m\033[1;90m W E L C O M E \033[0m  \033[0;103m\033[1;90m T O \033[0m  \033[0;102m\033[1;90m W O R D L E \033[0m\n");
 
-            System.out.print("Enter your Name: ");
-            String name = scan.nextLine();
+
+            String name = "";
+            do {
+                System.out.print("Enter your Name: ");
+                name = scan.nextLine();
+            }while(name == "");
 
 
             do {
@@ -83,11 +87,12 @@ public class Main {
                 } else if (option.equals("2")) {
                     wordleManger(words, field, option, name);
                 } else if (option.equals("3")){
-                    System.out.println("\nLeaderboard");
-                    try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/").openStream())) {
+                    System.out.println("\n\033[0;103m\033[1;90m Leaderboard \033[0m");
+                    try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/api").openStream())) {
                         String result = s.useDelimiter("\\A").next();
                         System.out.println(result);
                     }
+                    System.out.println("View in browser: https://valentin-nussbaumer.com/wordle/");
                 } else if (option.equals("4")) {
                     System.out.println("Thanks for using my Program");
                     keepDoing = false;
