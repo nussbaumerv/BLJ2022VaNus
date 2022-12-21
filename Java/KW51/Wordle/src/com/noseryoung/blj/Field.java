@@ -64,6 +64,7 @@ public class Field {
         return result;
     }
 
+
     public void setCorrectWord(String correctWord) {
         this.correctWord = correctWord;
     }
