@@ -2,7 +2,6 @@ package com.noseryoung.blj;
 
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.*;
 
 
 public class Main {

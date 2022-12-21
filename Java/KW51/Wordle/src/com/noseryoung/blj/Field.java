@@ -33,10 +33,12 @@ public class Field {
                 System.out.print("\033[0;107m");
                 if (arrCorrect[c].equals(field[c][r])) {
                     System.out.print("\033[0;102m");
+
                 } else {
                     for (int i = 0; i < 5; i++) {
                         if (arrCorrect[i].equals(field[c][r])) {
                             System.out.print("\033[0;103m");
+
                         }
                     }
                 }
