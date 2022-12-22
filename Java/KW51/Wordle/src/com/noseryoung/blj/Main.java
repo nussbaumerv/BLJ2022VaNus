@@ -6,12 +6,12 @@ import java.net.*;
 import java.io.*;
 
 public class Main {
-    public static void wordleManger(Words words, Field field, String option, String name) throws Exception {
+    public static void wordleManger(Words words, String option, String name) throws Exception {
+        Field field = new Field();
         Scanner scan = new Scanner(System.in);
         String correctWord = words.getWord();
         correctWord = correctWord.toUpperCase();
 
-        System.out.println(correctWord);
         field.setCorrectWord(correctWord);
 
         int counter = 0;
@@ -34,7 +34,7 @@ public class Main {
                     if (answer) {
                         System.out.println("\nNice job!");
                         System.out.println("You were able to solve it in " + counter + " tries\n");
-                        try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/api/insert.php?name="+ name + "&score=" + counter + "").openStream())) {
+                        try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/api/update.php?name="+ name + "&score=" + counter + "").openStream())) {
                             System.out.println(s.useDelimiter("\\A").next());
                         }
                         exit = true;
@@ -58,20 +58,16 @@ public class Main {
     }
         public static void main (String[]args) throws Exception {
             boolean keepDoing = true;
-            Field field = new Field();
             Words words = new Words();
+            User user = new User();
             Scanner scan = new Scanner(System.in);
 
             System.out.println("");
             System.out.println("\033[0;107m\033[1;90m W E L C O M E \033[0m  \033[0;103m\033[1;90m T O \033[0m  \033[0;102m\033[1;90m W O R D L E \033[0m\n");
 
 
-            String name = "";
-            do {
-                System.out.print("Enter your Name: ");
-                name = scan.nextLine();
-            }while(name == "");
-
+            user.login();
+            String name = user.getUserName();
 
             do {
                 System.out.println("\nWhat do you want to do?");
@@ -83,9 +79,9 @@ public class Main {
                 System.out.print("Enter Option: ");
                 String option = scan.nextLine();
                 if (option.equals("1")) {
-                    wordleManger(words, field, option, name);
+                    wordleManger(words, option, name);
                 } else if (option.equals("2")) {
-                    wordleManger(words, field, option, name);
+                    wordleManger(words, option, name);
                 } else if (option.equals("3")){
                     System.out.println("\n\033[0;103m\033[1;90m Leaderboard \033[0m");
                     try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://valentin-nussbaumer.com/wordle/api").openStream())) {
