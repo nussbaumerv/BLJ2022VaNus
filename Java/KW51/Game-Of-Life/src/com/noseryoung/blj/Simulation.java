@@ -100,13 +100,13 @@ public class Simulation extends Thread {
 
             for (int r = getFieldWidth() - 2; r > 0; r--) {
                 for (int c = getFieldHeight() - 2; c > 0; c--) {
-                    if(field[r][c] != newField[r][c]){
+                    if (field[r][c] != newField[r][c]) {
                         identique = false;
                     }
                 }
             }
 
-            if(identique){
+            if (identique) {
                 stopSimulation();
             }
 
@@ -250,7 +250,29 @@ public class Simulation extends Thread {
      * @param y The y-coordinate of a cell.
      * @return An int value representing the number of wrapped neighbours of a cell.
      */
-    private int getWrappedNeighbourCount(int x, int y) {
+    private int[] getWrappedNeighbourCount(int x, int y, String func) {
+        int[] cords = {x, y};
+        if (x < 0 || y < 0 || getFieldHeight() < x || getFieldWidth() < y) {
+            if (func.equals("x")) {
+                if (x < 0) {
+                    cords[0] = getFieldHeight() - 1;
+                }
+                if (getFieldHeight() < x) {
+                    cords[0] = 0;
+                }
+            } else {
+                if (y < 0) {
+                    cords[1] = getFieldWidth() - 1;
+                }
+                if (getFieldHeight() < y) {
+                    cords[1] = 0;
+                }
+            }
+
+        }
+        return cords;
+
+
 
         /*
          * TODO: INTERMEDIATE TASK - The simulation field is limited in size and has a
@@ -259,7 +281,6 @@ public class Simulation extends Thread {
          * bottom and in all directions.
          */
 
-        return 0;
     }
 
     /**

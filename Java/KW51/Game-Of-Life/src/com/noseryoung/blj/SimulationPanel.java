@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;  
@@ -95,6 +96,20 @@ public class SimulationPanel extends JPanel implements PropertyChangeListener {
     int[][] newField = (int[][]) evt.getNewValue();
     repaint();
 
+    Color[] colors;
+    colors = new Color[10];
+
+    colors[0] = Color.red;
+    colors[1] = Color.blue;
+    colors[2] = Color.yellow;
+    colors[3] = Color.green;
+    colors[4] = Color.pink;
+    colors[5] = Color.cyan;
+    colors[6] = Color.magenta;
+    colors[7] = Color.orange;
+    colors[8] = Color.darkGray;
+    colors[9] = Color.black;
+
     g2d.setStroke(new BasicStroke((float) (scale * cellMargin)));
 
     for (int x = 0; x < newField.length; x++) {
@@ -103,7 +118,9 @@ public class SimulationPanel extends JPanel implements PropertyChangeListener {
         int scaledY = y * scale + scale / 2;
 
         if (newField[x][y] == 1) {
-          g2d.setColor(Color.BLACK);
+          Random rand = new Random();
+          int index = rand.nextInt(10);
+          g2d.setColor(colors[index]);
         } else {
           g2d.setColor(Color.LIGHT_GRAY);
         }
