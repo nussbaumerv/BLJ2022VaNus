@@ -4,7 +4,7 @@ import com.noseryoung.blj.exceptions.TriangleException;
 
 public class Starter {
   public static void main(String[] args) throws TriangleException {
-    TriangleApp trilangle = new TriangleApp("Google", "Ka");
-    trilangle.start();
+    TriangleApp triangle = new TriangleApp("Google", "Valentin Nussbaumer", 2.121);
+    triangle.start();
   }
 }
