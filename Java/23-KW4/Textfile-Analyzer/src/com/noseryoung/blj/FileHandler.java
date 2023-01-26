@@ -10,7 +10,8 @@ public class FileHandler {
 
     public void readFile() throws IOException {
         String filename = "script";
-        File file = new File("C:\\Source\\BLJ2022VaNus\\Java\\23-KW4\\Textfile-Analyzer\\src\\com\\noseryoung\\blj\\" + filename + ".txt");
+        String path = "C:\\Source\\BLJ2022VaNus\\Java\\23-KW4\\Textfile-Analyzer\\src\\com\\noseryoung\\blj\\";
+        File file = new File(path + filename + ".txt");
         Scanner input = new Scanner(file);
 
         int count = 0;
@@ -27,15 +28,12 @@ public class FileHandler {
                 char charI = word.charAt(i);
                 int ascii = (int) charI;
                 if ((ascii < 64 || (ascii > 90 && ascii < 97) || ascii > 122) && (ascii != 39)) {
-
                     wordSB.deleteCharAt(i);
                     i = 1000;
-
                 }
             }
             word = wordSB.toString();
             if (!word.equals("")) {
-
 
                 for (int i = 0; i < words.size(); i++) {
                     if (words.get(i).equals(word)) {
@@ -57,7 +55,6 @@ public class FileHandler {
         }
         int highestAmount = 0;
         int highestIndex = 0;
-        System.out.println("\n\n");
 
         for (int i = 0; i < wordsCount.size(); i++) {
             if (wordsCount.get(i) > highestAmount) {
@@ -65,13 +62,11 @@ public class FileHandler {
                 highestAmount = wordsCount.get(i);
             }
         }
+        Sort sort = new Sort();
+        sort.sort("DESC", words, wordsCount);
+
+
         FileWriter write = new FileWriter();
-        write.write(filename, unique, count, words.get(highestIndex));
-        System.out.println("Word count: " + count);
-        System.out.println("Unique words: " + unique);
-        System.out.println("Most common Word: " + words.get(highestIndex));
-        System.out.println();
+        write.write(path, filename, unique, count, words.get(highestIndex), words, wordsCount);
     }
-
-
 }
