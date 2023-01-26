@@ -139,7 +139,6 @@ public class TriangleApp {
             System.out.println("\nThanks for using my program!");
         }
 
-
         System.out.println("******************************");
     }
 
