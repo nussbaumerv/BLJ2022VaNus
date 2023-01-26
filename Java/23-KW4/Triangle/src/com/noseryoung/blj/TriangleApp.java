@@ -29,15 +29,15 @@ public class TriangleApp {
             "-----------------------------------------------\n" +
             "| " + ANSI_GREEN_BACKGROUND + "TRI72TF" + ANSI_BLACK_BACKGROUND + " | Rechtwinkliges Dreieck\n" +
             "-----------------------------------------------\n" +
-            "| " + ANSI_RED_BACKGROUND + "ERR36TF" + ANSI_BLACK_BACKGROUND +   " | Unmögliches Dreieck\n" +
+            "| " + ANSI_RED_BACKGROUND + "ERR36TF" + ANSI_BLACK_BACKGROUND + " | Unmögliches Dreieck\n" +
             "-----------------------------------------------\n" +
-            "| " + ANSI_RED_BACKGROUND + "ERR96TF" + ANSI_BLACK_BACKGROUND +   " | Buchstaben oder sonstige Zeichen\n" +
+            "| " + ANSI_RED_BACKGROUND + "ERR96TF" + ANSI_BLACK_BACKGROUND + " | Buchstaben oder sonstige Zeichen\n" +
             "-----------------------------------------------\n" +
-            "| " + ANSI_RED_BACKGROUND + "ERR12TF" + ANSI_BLACK_BACKGROUND +   " | Minuszahlen\n" +
+            "| " + ANSI_RED_BACKGROUND + "ERR12TF" + ANSI_BLACK_BACKGROUND + " | Minuszahlen\n" +
             "-----------------------------------------------\n" +
-            "| " + ANSI_RED_BACKGROUND + "ERR16TF" + ANSI_BLACK_BACKGROUND +   " | Null als Seitenlänge\n" +
+            "| " + ANSI_RED_BACKGROUND + "ERR16TF" + ANSI_BLACK_BACKGROUND + " | Null als Seitenlänge\n" +
             "-----------------------------------------------\n" +
-            "| " + ANSI_RED_BACKGROUND + "ERR56TF" + ANSI_BLACK_BACKGROUND +   " | Eine Gerade\n" +
+            "| " + ANSI_RED_BACKGROUND + "ERR56TF" + ANSI_BLACK_BACKGROUND + " | Eine Gerade\n" +
             "-----------------------------------------------\n";
 
     private String triangleGraphic = "";
@@ -89,7 +89,7 @@ public class TriangleApp {
 
     private void printHeader() {
         System.out.println(ANSI_BLACK_BACKGROUND + "******************************");
-        System.out.println(ANSI_BLUE_BACKGROUND +  "      TRIANGLE EVALUATOR      " + ANSI_BLACK_BACKGROUND);
+        System.out.println(ANSI_BLUE_BACKGROUND + "      TRIANGLE EVALUATOR      " + ANSI_BLACK_BACKGROUND);
         System.out.println("******************************");
         System.out.println("COMPANY: " + ANSI_CYAN_BACKGROUND + company + ", " + Calendar.getInstance().get(Calendar.YEAR) + ANSI_BLACK_BACKGROUND);
         System.out.println("HANDLER: " + ANSI_CYAN_BACKGROUND + handler + ANSI_BLACK_BACKGROUND);
@@ -129,7 +129,7 @@ public class TriangleApp {
             action.toLowerCase();
             if (action.equals("q") || action.equals("c")) {
                 valid = true;
-            } else if(action.equals("o")){
+            } else if (action.equals("o")) {
                 System.out.println(codeTable);
             }
         } while (valid == false);
@@ -177,12 +177,12 @@ public class TriangleApp {
 
         if (sideA == sideB && sideB == sideC) {
             triangleGraphic = "\n" +
-                       "Gleichseitiges Dreieck \n\n" +
-                       "             / \\ \n" +
-                       "           /     \\ \n" +
-                       "         /         \\ \n" +
-                       "       /             \\ \n" +
-                       "      -----------------";
+                    "Gleichseitiges Dreieck \n\n" +
+                    "             / \\ \n" +
+                    "           /     \\ \n" +
+                    "         /         \\ \n" +
+                    "       /             \\ \n" +
+                    "      -----------------";
             returnCode = "TRI66TF";
         } else if (sideA == sideB || sideB == sideC || sideA == sideC) {
             triangleGraphic = "\n" +
