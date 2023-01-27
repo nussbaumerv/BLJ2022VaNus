@@ -6,20 +6,23 @@ import java.util.Scanner;
 
 public class FileHandler {
     private ArrayList<String> words = new ArrayList<String>();
+    private ArrayList<String> wordsRaw = new ArrayList<String>();
     private ArrayList<Integer> wordsCount = new ArrayList<Integer>();
-    private String  sortMethond = "DESC";
+    private String sortMethond = "DESC";
     private boolean doStopWord = false;
 
     int count = 0;
     int unique = 0;
     boolean found;
     int index = 0;
+    boolean successful = true;
 
-    public FileHandler(String sortMethond, boolean doStopWord){
+    public FileHandler(String sortMethond, boolean doStopWord) {
         this.sortMethond = sortMethond;
         this.doStopWord = doStopWord;
     }
-    public void processWord(String word){
+
+    public void processWord(String word) {
         found = false;
         StringBuilder wordSB = new StringBuilder(word);
         for (int i = 0; i < word.length(); i++) {
@@ -53,7 +56,9 @@ public class FileHandler {
         }
 
     }
-    public void readFile() throws IOException {
+
+    public boolean readFile(int option) throws IOException {
+
         StopWordsDetect stopWord = new StopWordsDetect();
         String filename = "script";
         String path = "C:\\Source\\BLJ2022VaNus\\Java\\23-KW4\\Textfile-Analyzer\\src\\com\\noseryoung\\blj\\";
@@ -65,38 +70,61 @@ public class FileHandler {
             String word = input.next();
             word = word.toLowerCase();
 
-            if(doStopWord){
-                if(stopWord.detectWord(word)){
+            wordsRaw.add(word);
+
+            if (doStopWord) {
+                if (stopWord.detectWord(word)) {
                     processWord(word);
                 }
-            } else{
+            } else {
                 processWord(word);
             }
+
         }
-        int highestAmount = 0;
-        int highestIndex = 0;
 
-        int longestLength = 0;
-        int longestIndex = 0;
+            int highestAmount = 0;
+            int highestIndex = 0;
 
-        Sort sort = new Sort();
-        sort.sort(sortMethond, words, wordsCount);
+            int longestLength = 0;
+            int longestIndex = 0;
 
-        for (int i = 0; i < wordsCount.size(); i++) {
-            if (wordsCount.get(i) > highestAmount) {
-                highestIndex = i;
-                highestAmount = wordsCount.get(i);
+            Sort sort = new Sort();
+            sort.sort(sortMethond, words, wordsCount);
+
+            for (int i = 0; i < wordsCount.size(); i++) {
+                if (wordsCount.get(i) > highestAmount) {
+                    highestIndex = i;
+                    highestAmount = wordsCount.get(i);
+                }
             }
-        }
 
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() > longestLength) {
-                longestIndex = i;
-                longestLength = words.get(i).length();
+            for (int i = 0; i < words.size(); i++) {
+                if (words.get(i).length() > longestLength) {
+                    longestIndex = i;
+                    longestLength = words.get(i).length();
+                }
             }
-        }
+            String stopWordString = "Include";
+            if(doStopWord){
+                stopWordString = "Exclude";
+            }
 
-        FileWriter write = new FileWriter();
-        write.write(path, filename, unique, count, words.get(highestIndex), words.get(longestIndex), longestLength, words, wordsCount);
+            FileWriter write = new FileWriter();
+            successful = write.write(path, filename, unique, count, words.get(highestIndex), words.get(longestIndex), longestLength, words, wordsCount, stopWordString, sortMethond);
+
+        return successful;
+
+    }
+
+    public ArrayList<String> getWords() {
+        return words;
+    }
+
+    public ArrayList<Integer> getWordsCount() {
+        return wordsCount;
+    }
+
+    public ArrayList<String> getWordsRaw() {
+        return wordsRaw;
     }
 }
