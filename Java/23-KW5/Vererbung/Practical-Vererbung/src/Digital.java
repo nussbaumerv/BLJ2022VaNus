@@ -11,6 +11,6 @@ public class Digital extends Media{
     public void printInfo(){
         super.printInfo();
         System.out.println("FSK: " + fsk);
-        System.out.println("Storage: " + storage + " mb");
+        System.out.println("Storage: " + storage + " MB");
     }
 }

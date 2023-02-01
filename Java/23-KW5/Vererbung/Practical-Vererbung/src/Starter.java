@@ -1,4 +1,4 @@
-public class Main {
+public class Starter {
     public static void main(String[] args) {
         Book book = new Book("Harry Potter und die Heiligtümer des Todes", 2007, "English", 20, "Book", 100, "J.K", "Rowling", 57);
         book.printInfo();
