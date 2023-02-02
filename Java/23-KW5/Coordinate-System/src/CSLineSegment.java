@@ -1,32 +1,56 @@
 public class CSLineSegment {
-    public static void addPoint(int x, int y, CoordinateSystem cs){
-        CSPoint point = new CSPoint(x,y);
-        point.setId(0);
-        cs.addPoint(point);
+    private int x1;
+    private int y1;
+    private int x2;
+    private int y2;
+
+    private int id = 1;
+
+    private CSPoint p1;
+    private CSPoint p2;
+
+    public CSLineSegment(CSPoint p1, CSPoint p2){
+        this.p1 = p1;
+        this.p2 = p2;
+
+        x1 = (int) p1.getX();
+        y1 = (int) p1.getY();
+
+        x2 = (int) p2.getX();
+        y2 = (int) p2.getY();
+
     }
-    public CSLineSegment(CSPoint p1, CSPoint p2, CoordinateSystem cs){
-        int x1 = (int) p1.getX();
-        int y1 = (int) p1.getY();
 
-        int x2 = (int) p2.getX();
-        int y2 = (int) p2.getY();
+    public int getX1() {
+        return x1;
+    }
 
-        int xDiff = Math.abs(x1-x2);
-        int yDiff = Math.abs(y1-y2);
+    public int getY1() {
+        return y1;
+    }
 
-        int xM = xDiff;
-        int yM = yDiff;
+    public int getX2() {
+        return x2;
+    }
 
+    public int getY2() {
+        return y2;
+    }
 
+    public CSPoint getP1() {
+        return p1;
+    }
 
-        double distBetween = (Math.pow(xDiff,2)) + (Math.pow(yDiff,2));
-        distBetween = Math.sqrt(distBetween);
+    public CSPoint getP2() {
+        return p2;
+    }
 
-        for(int i = 0; i < distBetween; i++){
-            addPoint((x1 + (i * xM)), (y1 + (i * yM)), cs);
+    public void setId(int id) {
+        this.id = id;
+    }
 
-
-        }
-
+    @Override
+    public String toString() {
+        return id + ": Line";
     }
 }

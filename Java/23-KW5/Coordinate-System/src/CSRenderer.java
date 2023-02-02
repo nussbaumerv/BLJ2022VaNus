@@ -111,6 +111,13 @@ public class CSRenderer extends JPanel {
       g2d.setColor(Color.BLUE);
       g2d.drawLine(translatedPoint.x, translatedPoint.y, translatedPoint.x, translatedPoint.y);
     }
+
+    for (CSLineSegment line : cs.getAllLines()) {
+      CSLineSegment translatedLine = translateLine(line);
+      g.setColor(Color.BLUE);
+      g.drawLine(translatedLine.getX1(), translatedLine.getY1(), translatedLine.getX2(), translatedLine.getY2());
+    }
+
   }
 
   /**
@@ -123,6 +130,14 @@ public class CSRenderer extends JPanel {
    */
   private CSPoint translatePoint(Point point) {
     return new CSPoint(point.x * fieldScale + size / 2, size / 2 - point.y * fieldScale);
+  }
+
+  private CSLineSegment translateLine(CSLineSegment line) {
+
+    CSPoint NP1 = translatePoint(line.getP1());
+    CSPoint NP2 = translatePoint(line.getP2());
+
+    return new CSLineSegment(NP1, NP2);
   }
 
   /**
@@ -140,7 +155,6 @@ public class CSRenderer extends JPanel {
       public void mouseMoved(MouseEvent me) {
         for (CSPoint point : cs.getAllPoints()) {
           CSPoint tp = translatePoint(point);
-
           if ((me.getPoint().x >= tp.x - scaledLeeway && me.getPoint().x <= tp.x + scaledLeeway)
               && (me.getPoint().y >= tp.y - scaledLeeway && me.getPoint().y <= tp.y + scaledLeeway)) {
             mainFrame.setTitle(point.toString());

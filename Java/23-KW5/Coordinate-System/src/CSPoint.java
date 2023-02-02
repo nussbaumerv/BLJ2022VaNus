@@ -13,7 +13,7 @@ public class CSPoint extends java.awt.Point{
 
     @Override
     public String toString() {
-        return id + "[x=" + x + ",y=" + y + "]";
+        return "Point: " + id + "[x=" + x + ",y=" + y + "]";
     }
 
 

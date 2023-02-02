@@ -1,34 +1,46 @@
 public class Starter {
-    private static int idCounter = 0;
+    private static int pointCounter = 0;
+    private static int lineCounter = 0;
 
-    public static void addPoint(int x, int y, CoordinateSystem cs){
+    public static CSPoint addPoint(int x, int y, CoordinateSystem cs){
         CSPoint point = new CSPoint(x,y);
-        idCounter++;
-        point.setId(idCounter);
+        pointCounter++;
+        point.setId(pointCounter);
         cs.addPoint(point);
+
+        return point;
+    }
+
+    public static void addLine(CSPoint point1,CSPoint point2, CoordinateSystem cs){
+        CSLineSegment line = new CSLineSegment(point1, point2);
+        lineCounter++;
+        line.setId(lineCounter);
+        cs.addLine(line);
     }
     public static void main(String[] args) {
         int pointSize = 4;
 
         CoordinateSystem cs = new CoordinateSystem(500);
 
-        addPoint(-25, -25, cs);
-        addPoint(25, 25, cs);
+        CSPoint point1;
+        CSPoint point2;
 
-        CSPoint point = new CSPoint(-60,-40);
-        idCounter++;
-        point.setId(idCounter);
-        cs.addPoint(point);
+        point1 = addPoint(-250, 0, cs);
+        point2 = addPoint(0, -250, cs);
 
-        CSPoint point2 = new CSPoint(60,40);
-        idCounter++;
-        point2.setId(idCounter);
-        cs.addPoint(point2);
+        addLine(point1,point2,cs);
 
-        CSLineSegment line = new CSLineSegment(point, point2, cs);
+        point1 = addPoint(250, 250, cs);
+        point2 = addPoint(0, -250, cs);
+
+        addLine(point1,point2,cs);
+
+        point1 = addPoint(250, 250, cs);
+        point2 = addPoint(-250, 0, cs);
+
+        addLine(point1,point2,cs);
 
 
         CSRenderer renderer = new CSRenderer(cs, 1, pointSize);
-
     }
 }
