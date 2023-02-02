@@ -8,10 +8,27 @@ public class Starter {
         cs.addPoint(point);
     }
     public static void main(String[] args) {
+        int pointSize = 4;
+
         CoordinateSystem cs = new CoordinateSystem(500);
 
         addPoint(-25, -25, cs);
-        CSRenderer renderer = new CSRenderer(cs, 1, 10);
+        addPoint(25, 25, cs);
+
+        CSPoint point = new CSPoint(-60,-40);
+        idCounter++;
+        point.setId(idCounter);
+        cs.addPoint(point);
+
+        CSPoint point2 = new CSPoint(60,40);
+        idCounter++;
+        point2.setId(idCounter);
+        cs.addPoint(point2);
+
+        CSLineSegment line = new CSLineSegment(point, point2, cs);
+
+
+        CSRenderer renderer = new CSRenderer(cs, 1, pointSize);
 
     }
 }
