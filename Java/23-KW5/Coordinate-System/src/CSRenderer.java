@@ -1,14 +1,10 @@
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  * This class is responsible for visualising a given coordinate system in a
@@ -60,6 +56,12 @@ public class CSRenderer extends JPanel {
     mainFrame.setLocationRelativeTo(null);
 
     mainFrame.setVisible(true);
+
+    mainFrame.setTitle("Coordinate System");
+
+    Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Source\\BLJ2022VaNus\\Java\\23-KW5\\Coordinate-System\\src\\favicon.png");
+    mainFrame.setIconImage(icon);
+
   }
 
   /**
