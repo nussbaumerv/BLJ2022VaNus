@@ -1,0 +1,12 @@
+ID | Name                 | Salary
+----+---------------------+--------
+ 1 | John Doe             | 50000
+ 2 | Jane Doe             | 60000
+ 3 | Bob Smith            | 55000
+ 4 | Alice Johnson        | 70000
+ 5 | Michael Jackson      | 65000
+ 6 | Sarah Williams       | 80000
+ 7 | David Brown          | 75000
+ 8 | Elizabeth Davis      | 90000
+ 9 | William Johnson      | 85000
+10 | Christopher Martinez | 95000
