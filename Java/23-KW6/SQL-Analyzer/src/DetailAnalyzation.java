@@ -2,10 +2,9 @@ import java.util.Objects;
 import java.util.Arrays;
 
 public class DetailAnalyzation {
-
     public String dataAnalyze(String[] linesInput, String[] linesCorrect) {
         boolean correctData = true;
-        String returnString = new String("");
+        String returnString = "";
 
         if (linesInput.length == linesCorrect.length) {
             for (int i = 0; i < linesCorrect.length; i++) {
@@ -27,7 +26,7 @@ public class DetailAnalyzation {
     }
 
     public String outDatAnalyze(String input, String correct, String determiter) {
-        String returnString = new String("");
+        String returnString;
 
         String[] linesInput = input.split(determiter);
         String[] linesCorrect = correct.split(determiter);
@@ -61,6 +60,5 @@ public class DetailAnalyzation {
 
         System.out.println("\nDatasets:");
         System.out.println(outDatAnalyze(dataIn, dataCorr, "\n"));
-
     }
 }
