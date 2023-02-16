@@ -8,6 +8,5 @@ public class Main {
 
         DetailAnalyzation detailAnalyzation = new DetailAnalyzation();
         detailAnalyzation.analyze(correct, input);
-
     }
 }

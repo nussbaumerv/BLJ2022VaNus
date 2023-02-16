@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class FileHandler {
     public String trim(String content){
-        String result = new String("");
+        String result = "";
         String[] lines = content.split("\n");
         for (String line : lines) {
             String[] columns = line.split(" \\| ");

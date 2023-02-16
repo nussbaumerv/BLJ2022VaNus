@@ -36,7 +36,7 @@ public class Main {
 
         int usedFields = 0;
         int totalFields = 25;
-
+``
         arrField[stateY][stateX] = 4;
         do {
             ArrayList<Integer> options = chooseOption(totalX, totalY, stateX, stateY, arrField, 0);

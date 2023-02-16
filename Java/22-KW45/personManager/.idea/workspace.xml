@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf9e2fe5-31fa-4a1e-bdda-8ca5b5c57f20" name="Changes" comment="finished person Manager" />
+    <list default="true" id="cf9e2fe5-31fa-4a1e-bdda-8ca5b5c57f20" name="Changes" comment="finished person Manager">
+      <change afterPath="$PROJECT_DIR$/../../23-KW6/HelloFX/src/main/java/com/example/hellofx/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../23-KW6/HelloFX/src/main/java/com/example/hellofx/PersonManger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../23-KW6/HelloFX/src/main/resources/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/out/production/Labyrinth/com/noseryoung/blj/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/out/production/Labyrinth/com/noseryoung/blj/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/src/com/noseryoung/blj/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/src/com/noseryoung/blj/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/DetailAnalyzation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/DetailAnalyzation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/FileHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,7 +49,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Source/BLJ2022VaNus/Java/22-KW45/personManager",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -40,6 +67,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667988544362</updated>
+      <workItem from="1676472227974" duration="15000" />
+      <workItem from="1676472323437" duration="870000" />
     </task>
     <task id="LOCAL-00001" summary="coded personManager">
       <created>1668000870770</created>
@@ -57,6 +86,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
