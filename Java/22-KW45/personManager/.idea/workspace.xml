@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf9e2fe5-31fa-4a1e-bdda-8ca5b5c57f20" name="Changes" comment="finished person Manager">
-      <change afterPath="$PROJECT_DIR$/../../23-KW6/HelloFX/src/main/java/com/example/hellofx/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../23-KW6/HelloFX/src/main/java/com/example/hellofx/PersonManger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../23-KW6/HelloFX/src/main/resources/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/out/production/Labyrinth/com/noseryoung/blj/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/out/production/Labyrinth/com/noseryoung/blj/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/src/com/noseryoung/blj/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../22-KW49/LabyrinthWithoutStack/src/com/noseryoung/blj/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/DetailAnalyzation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/DetailAnalyzation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/FileHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/out/production/SQL-Analyzer/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23-KW6/SQL-Analyzer/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="cf9e2fe5-31fa-4a1e-bdda-8ca5b5c57f20" name="Changes" comment="finished person Manager" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class CoordinateSystem {
     ArrayList<CSPoint> points = new ArrayList<>();
     ArrayList<CSLineSegment> lines = new ArrayList<>();
+    ArrayList<CSTriangleSegment> triangles = new ArrayList<>();
     private int fieldSize;
     public CoordinateSystem(int size) {
         if(size > 0 && size % 20 == 0){
@@ -18,6 +19,10 @@ public class CoordinateSystem {
     }
     public void addLine(CSLineSegment line){
         lines.add(line);
+    }
+
+    public void addTriangle(CSTriangleSegment triangle){
+        triangles.add(triangle);
     }
 
     public int getCoordinateSystemSize() {
@@ -36,9 +41,17 @@ public class CoordinateSystem {
     public ArrayList<CSLineSegment> getLine() {
         return lines;
     }
+    public ArrayList<CSTriangleSegment> getTriangle() {
+        return triangles;
+    }
 
     public CSLineSegment[] getAllLines() {
         CSLineSegment[] lineArr = getLine().toArray(new CSLineSegment[0]);
         return lineArr;
+    }
+
+    public CSTriangleSegment[] getAllTriangles() {
+        CSTriangleSegment[] triArr = getTriangle().toArray(new CSTriangleSegment[0]);
+        return triArr;
     }
 }

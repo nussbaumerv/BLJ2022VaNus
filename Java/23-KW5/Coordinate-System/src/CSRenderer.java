@@ -120,6 +120,13 @@ public class CSRenderer extends JPanel {
       g.drawLine(translatedLine.getX1(), translatedLine.getY1(), translatedLine.getX2(), translatedLine.getY2());
     }
 
+    for (CSTriangleSegment triangle : cs.getAllTriangles()) {
+      CSTriangleSegment translatedTriangle = translateTriangle(triangle);
+      g.setColor(Color.BLUE);
+      g.drawLine(translatedTriangle.getX1(), translatedTriangle.getY1(), translatedTriangle.getX2(), translatedTriangle.getY2());
+    }
+
+
   }
 
   /**
@@ -140,6 +147,15 @@ public class CSRenderer extends JPanel {
     CSPoint NP2 = translatePoint(line.getP2());
 
     return new CSLineSegment(NP1, NP2);
+  }
+
+  private CSTriangleSegment translateTriangle(CSTriangleSegment triangle) {
+
+    CSPoint NP1 = translatePoint(triangle.getP1());
+    CSPoint NP2 = translatePoint(triangle.getP2());
+    CSPoint NP3 = translatePoint(triangle.getP3());
+
+    return new CSTriangleSegment(NP1, NP2, NP3);
   }
 
   /**
