@@ -16,8 +16,6 @@ public class Contract {
         this.person = person;
         this.startDate = startDate;
         this.endDate = endDate;
-
-            System.out.println("Creating contract");
     }
 
     public Vehicle getVehicle() {

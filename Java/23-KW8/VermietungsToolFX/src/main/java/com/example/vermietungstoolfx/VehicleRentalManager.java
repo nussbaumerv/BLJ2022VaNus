@@ -136,4 +136,8 @@ public class VehicleRentalManager {
     public ArrayList<Person> getCustomerList() {
         return customerList;
     }
+
+    public int getVehicleListSize(){
+        return vehicles.size();
+    }
 }
