@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Fermietungstool.iml" filepath="$PROJECT_DIR$/Fermietungstool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vermietungstool.iml" filepath="$PROJECT_DIR$/Vermietungstool.iml" />
     </modules>
   </component>
 </project>
