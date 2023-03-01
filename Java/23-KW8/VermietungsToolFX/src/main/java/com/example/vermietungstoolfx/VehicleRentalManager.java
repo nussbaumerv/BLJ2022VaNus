@@ -1,5 +1,6 @@
 package com.example.vermietungstoolfx;
 
+import com.example.vermietungstoolfx.exceptions.DateOrderException;
 import com.example.vermietungstoolfx.exceptions.DenylistedPersonException;
 import com.example.vermietungstoolfx.exceptions.LeaseLengthCollisionException;
 import com.example.vermietungstoolfx.exceptions.MinorAgeException;
@@ -18,6 +19,13 @@ public class VehicleRentalManager {
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 
     private ArrayList<Contract> contracts = new ArrayList<Contract>();
+
+    public int initializeVehicle(int id, String producerName, int modelNumber, String color, String vehicleNumber, int minAge, String imgUrl) {
+        Vehicle vehicle = new Vehicle(id, producerName, modelNumber, color, vehicleNumber, minAge, imgUrl);
+        vehicles.add(vehicle);
+        int index = vehicles.indexOf(vehicle);
+        return index;
+    }
 
     public int initializeCar(int id, String producerName, int modelNumber, String color, String vehicleNumber, int minAge, String imgUrl, boolean automatic) {
         Car car = new Car(id, producerName, modelNumber, color, vehicleNumber, minAge, imgUrl, automatic);
@@ -48,26 +56,30 @@ public class VehicleRentalManager {
         return vehicles.get(index);
     }
 
+    public int getVehicleByIndex(Vehicle vehicle) {
+        return vehicles.indexOf(vehicle);
+    }
+
     public Rocket getRocket(int index) {
         return (Rocket) vehicles.get(index);
     }
 
-    public Person getPerson (int index) {
+    public Person getPerson(int index) {
         return customerList.get(index);
     }
 
     public void checkIfBooked(LocalDate startDate, LocalDate endDate, Vehicle vehicle) throws LeaseLengthCollisionException {
         boolean free = true;
-        for(int i = 0; i < contracts.size(); i++){
-            if(contracts.get(i).getVehicle().equals(vehicle)){
-                if(startDate.isBefore(contracts.get(i).getEndDate()) && endDate.isAfter(contracts.get(i).getStartDate())){
+        for (int i = 0; i < contracts.size(); i++) {
+            if (contracts.get(i).getVehicle().equals(vehicle)) {
+                if (startDate.isBefore(contracts.get(i).getEndDate()) && endDate.isAfter(contracts.get(i).getStartDate())) {
                     free = false;
                 }
 
             }
         }
 
-        if(!free){
+        if (!free) {
             throw new LeaseLengthCollisionException();
         }
 
@@ -79,44 +91,55 @@ public class VehicleRentalManager {
         }
 
     }
+
     public void checkAge(Vehicle vehicle, Person person) throws MinorAgeException {
-        if(person.getAge() < vehicle.getMinAge()){
+        if (person.getAge() < vehicle.getMinAge()) {
             throw new MinorAgeException();
         }
 
     }
 
-    public int createContract(Vehicle vehicle, Person person, LocalDate startDate, LocalDate endDate) throws MinorAgeException {
-        int index = -1;
-        try {
-            checkIfBooked(startDate, endDate, vehicle);
-            try {
-                checkIfBlackListed(person);
-
-                try {
-                    checkAge(vehicle, person);
-
-                    Contract contract = new Contract(vehicle, person, startDate, endDate);
-                    contracts.add(contract);
-                    index = contracts.indexOf(contract);
-
-                }catch (MinorAgeException e){
-                    System.out.println(e.getMessage());
-                }
-            } catch (DenylistedPersonException e) {
-                System.out.println(e.getMessage());
-            }
-        } catch (LeaseLengthCollisionException e) {
-            System.out.println(e.getMessage());
+    public void checkDateOrder(LocalDate startDate, LocalDate endDate) throws DateOrderException {
+        if (endDate.isBefore(startDate)) {
+            throw new DateOrderException();
         }
-        return index;
+
+    }
+
+
+    public String createContract(Vehicle vehicle, Person person, LocalDate startDate, LocalDate endDate) throws MinorAgeException {
+        String message = "ok";
+        try {
+            checkDateOrder(startDate, endDate);
+            try {
+                checkIfBooked(startDate, endDate, vehicle);
+                try {
+                    checkIfBlackListed(person);
+                    try {
+                        checkAge(vehicle, person);
+
+                        Contract contract = new Contract(vehicle, person, startDate, endDate);
+                        contracts.add(contract);
+
+                    } catch (MinorAgeException e) {
+                        message = e.getMessage();
+                    }
+                } catch (DenylistedPersonException e) {
+                    message = e.getMessage();
+                }
+            } catch (LeaseLengthCollisionException e) {
+                message = e.getMessage();
+            }
+        } catch (DateOrderException e) {
+            message = e.getMessage();
+        }
+        return message;
     }
 
     public int addPerson(String firstName, String lastName, LocalDate birthday) {
         Person person = new Person(firstName, lastName, birthday);
         customerList.add(person);
         int index = customerList.indexOf(person);
-        System.out.println("Added Person: " + firstName + lastName + birthday.toString());
         return index;
     }
 
@@ -137,7 +160,7 @@ public class VehicleRentalManager {
         return customerList;
     }
 
-    public int getVehicleListSize(){
+    public int getVehicleListSize() {
         return vehicles.size();
     }
 }
