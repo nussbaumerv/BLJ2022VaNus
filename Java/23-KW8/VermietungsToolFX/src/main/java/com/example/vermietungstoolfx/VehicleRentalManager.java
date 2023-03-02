@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class VehicleRentalManager {
     private ArrayList<Person> customerList = new ArrayList<Person>();
+
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
     private ArrayList<Person> denyList = new ArrayList<Person>();
 
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
@@ -25,6 +27,31 @@ public class VehicleRentalManager {
         vehicles.add(vehicle);
         int index = vehicles.indexOf(vehicle);
         return index;
+    }
+
+    public void updateVehicle(int index, String producerName, int modelNumber, String color, String vehicleNumber, int minAge, String imgUrl) {
+        Vehicle vehicle = getVehicle(index);
+        vehicle.setProducerName(producerName);
+        vehicle.setModelNumber(modelNumber);
+        vehicle.setColor(color);
+        vehicle.setVehicleNumber(vehicleNumber);
+        vehicle.setMinAge(minAge);
+        vehicle.setImgUrl(imgUrl);
+    }
+
+    public void updatePerson(int index, String firstName, String lastName, LocalDate birthday){
+        Person person = getPerson(index);
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setBirthday(birthday);
+    }
+
+    public void deleteVehicle(int index){
+        vehicles.remove(index);
+    }
+
+    public void deletePerson(int index){
+        customerList.remove(index);
     }
 
     public int initializeCar(int id, String producerName, int modelNumber, String color, String vehicleNumber, int minAge, String imgUrl, boolean automatic) {
@@ -92,6 +119,17 @@ public class VehicleRentalManager {
 
     }
 
+    public boolean checkIfContracts(Person person){
+        boolean contains = false;
+        for(int i = 0; i < contracts.size(); i++){
+            if(contracts.get(i).getPerson().equals(person)){
+                contains = true;
+            }
+        }
+
+        return contains;
+    }
+
     public void checkAge(Vehicle vehicle, Person person) throws MinorAgeException {
         if (person.getAge() < vehicle.getMinAge()) {
             throw new MinorAgeException();
@@ -141,6 +179,22 @@ public class VehicleRentalManager {
         customerList.add(person);
         int index = customerList.indexOf(person);
         return index;
+    }
+
+    public void addEmployee(String firstName, String lastName, LocalDate birthday, String username, String password) {
+        Employee employee = new Employee(firstName, lastName, birthday, username, password);
+        employees.add(employee);
+    }
+
+    public boolean employeeLogin(String username, String password){
+        boolean valid = false;
+            for(int i = 0; i < employees.size(); i ++){
+                if(employees.get(i).getUsername().equals(username) && employees.get(i).getPassword().equals(password)) {
+                    valid = true;
+                }
+
+        }
+        return valid;
     }
 
     public void addPersonToDenyList(Person person) {

@@ -1,6 +1,44 @@
-/*.tab-pane {
+.tab-pane {
     -fx-tab-max-height: 0 ;
 }
 .tab-pane .tab-header-area {
     visibility: hidden ;
+}
+.root{
+    -fx-background-color: #4f4e4d;
+}
+.button, .text-field, .password-field, .menu-button, .arrow-button, .menu-button{
+    -fx-background-color: grey;
+    -fx-border-color: #363635;
+    -fx-border-width: 2px;
+}
+
+.button{
+    -fx-background-color: #363635;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+}
+
+.button:hover{
+    -fx-border-color: red;
+}
+
+.date-picker{
+    -fx-border-color: #4f4e4d;
+}
+.text-field, .arrow-button, .menu-button{
+    -fx-text-fill: white;
+    -fx-border-color: red;
+}
+
+.label{
+    -fx-text-fill: #ababa9;
+}
+
+.text-field:hover, .password-field:hover, .menu-button:hover, .arrow-button:hover{
+    -fx-border-color: black;
+    -fx-cursor: pointer;
+}
+.hyperlink{
+    -fx-text-fill:black;
 }

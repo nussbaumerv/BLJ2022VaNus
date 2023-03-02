@@ -29,4 +29,19 @@ public class Person {
         return period.getYears();
     }
 
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
 }

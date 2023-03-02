@@ -29,4 +29,8 @@ public class Contract {
     public LocalDate getEndDate() {
         return endDate;
     }
+
+    public Person getPerson() {
+        return person;
+    }
 }

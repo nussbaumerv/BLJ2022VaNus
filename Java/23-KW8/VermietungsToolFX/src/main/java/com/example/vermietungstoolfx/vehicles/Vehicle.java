@@ -47,4 +47,32 @@ public class Vehicle{
     public String getImgUrl() {
         return imgUrl;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setProducerName(String producerName) {
+        this.producerName = producerName;
+    }
+
+    public void setModelNumber(int modelNumber) {
+        this.modelNumber = modelNumber;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
+    }
+
+    public void setMinAge(int minAge) {
+        this.minAge = minAge;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 }
