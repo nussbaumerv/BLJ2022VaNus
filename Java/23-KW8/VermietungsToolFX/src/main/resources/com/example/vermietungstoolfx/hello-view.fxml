@@ -141,6 +141,11 @@
                                  <Font size="13.0" />
                               </font>
                            </Label>
+                           <Hyperlink fx:id="linkToPDF" text="Download as PDF">
+                              <VBox.margin>
+                                 <Insets top="20.0" />
+                              </VBox.margin>
+                           </Hyperlink>
                            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#rentMore" prefHeight="25.0" prefWidth="115.0" text="Rent more">
                               <VBox.margin>
                                  <Insets top="40.0" />
@@ -324,7 +329,6 @@
                            </Button>
                         </children>
                      </VBox>
-                     <Hyperlink layoutX="229.0" layoutY="383.0" text="https://apple.com" />
                   </children>
                </AnchorPane>
             </content>

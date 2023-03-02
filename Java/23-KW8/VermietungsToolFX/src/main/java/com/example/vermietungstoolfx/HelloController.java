@@ -11,15 +11,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.awt.Desktop;
 
 public class HelloController {
 
     VehicleRentalManager manager = new VehicleRentalManager();
     public void initialize() {
-        manager.initializeCar(1, "Volvo", 22, "Black", "XC40", 18, "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2021-Volvo-XC40-Recharge-color-Onyx-Black-CA.jpg", false);
-        manager.initializeRocket(2, "Nasa", 1, "White", "Apollo 11", 18, "https://www.br.de/kinder/apollo-11-kapsel-saturn-mondrakete-mondlandung-100~_v-img__3__4__xl_-f4c197f4ebda83c772171de6efadd3b29843089f.jpg?version=aae68", "Space IDK");
-        manager.initializeMotorcycle(3, "Aprilia", 1, "Red", "SX 125", 16, "https://images.piaggio.com/aprilia/vehicles/ap6161s00ecn00/ap6161s00ecnb6/ap6161s00ecnb6-01-s.png", true);
+        manager.initializeCar(1, "BMW", 2022, "Black", "M4", 18, "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/all-models/m-automobile/m4-x-kith/bmw-m4-x-kith-ms-02.jpg", false);
+        manager.initializeRocket(2, "Nasa", 2000, "White", "Apollo 11", 18, "https://upload.wikimedia.org/wikipedia/commons/7/7d/Apollo_11_Saturn_V_lifting_off_on_July_16%2C_1969.jpg", "Space IDK");
+        manager.initializeMotorcycle(3, "Aprilia", 2018, "Red", "SX 125", 16, "https://images5.1000ps.net/g-000256-g_W2568742-aprilia-sx-125-supermoto-637515758021341623.jpg", true);
 
 
         onLoadVehicle(1);
@@ -112,6 +118,9 @@ public class HelloController {
     private TextField imgUrlNew;
 
     @FXML
+    private Hyperlink linkToPDF;
+
+    @FXML
     private PasswordField passwordField;
     @FXML
     protected void onSavePerson() {
@@ -119,7 +128,7 @@ public class HelloController {
             currentTab = 0;
             showAlert("Not all fields a filled up");
         } else {
-            manager.addPerson(firstName.getText(), lastName.getText(), birthDay.getValue());
+            manager.addPerson(firstName.getText(), lastName.getText(), LocalDate.of(2000, 3, 2));
             firstName.clear();
             lastName.clear();
             birthDay.getEditor().clear();
@@ -195,6 +204,16 @@ public class HelloController {
                 contractVehicleName.setText("Producer: " + vehicle.getProducerName());
                 contractRenterName.setText(person.getFirstName() + " " + person.getLastName());
                 contractDate.setText("From " + startDate.getValue().toString() + " to " + endDate.getValue().toString());
+
+                linkToPDF.setOnAction(e -> {
+                    String url = "https://valentin-nussbaumer.com/java/api/rent/pdf.php?usr=" + person.getFirstName() + "%20" + person.getLastName() +"&prod="+vehicle.getProducerName()+"&sDate="+startDate.getValue().toString()+"&eDate="+endDate.getValue().toString()+"&model="+vehicle.getVehicleNumber()+"&img="+vehicle.getImgUrl()+"";
+                    url = url.replace(" ", "%20");
+                    try {
+                        Desktop.getDesktop().browse(new URI(url));
+                    } catch (IOException | URISyntaxException ex) {
+                        ex.printStackTrace();
+                    }
+                });
             } else {
                 showAlert(msg);
             }
@@ -203,7 +222,6 @@ public class HelloController {
 
     @FXML
     protected void onLoadDeny() {
-        System.out.println("it's a start");
 
         PersonToDeny.getItems().clear();
 
@@ -216,7 +234,6 @@ public class HelloController {
                     selectedPersonDeny = Integer.parseInt(((MenuItem)e.getSource()).getId());
                 }
             };
-            System.out.println("go");
 
             MenuItem menuItem = new MenuItem(persons.get(i).getFirstName() + " " + persons.get(i).getLastName());
             menuItem.setOnAction(event2);
@@ -303,6 +320,7 @@ public class HelloController {
             currentTab = 5;
             showAlert("Wrong Password");
         }
+        passwordField.clear();
     }
 
     @FXML
