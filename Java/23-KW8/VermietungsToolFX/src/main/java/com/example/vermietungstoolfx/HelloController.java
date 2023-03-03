@@ -22,7 +22,7 @@ public class HelloController {
 
     public void initialize() {
         manager.initializeCar(1, "BMW", 2022, "Black", "M4", 18, "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/all-models/m-automobile/m4-x-kith/bmw-m4-x-kith-ms-02.jpg", false);
-        manager.initializeRocket(2, "Nasa", 2000, "White", "Apollo 11", 18, "https://live.staticflickr.com/4141/4858567248_d2159bc7b8_b.jpg", "Space IDK");
+        manager.initializeRocket(2, "Nasa", 2000, "White", "Apollo 11", 18, "https://static.nationalgeographic.co.uk/files/styles/image_3200/public/apollo-anniversary-gettyimages-515392088.jpg?w=1600&h=900", "Space IDK");
         manager.initializeMotorcycle(3, "Aprilia", 2018, "Red", "SX 125", 16, "https://www.motorcyclespecs.co.za/Gallery%20B/aprilia-sx125-18-01.jpg", true);
         manager.initializeVehicle(4, "Specialized", 2018, "Black", "Stumpjumpe", 0, "https://u7q2x7c9.stackpathcdn.com/photos/24/25/364013_735_XL.jpg");
 
