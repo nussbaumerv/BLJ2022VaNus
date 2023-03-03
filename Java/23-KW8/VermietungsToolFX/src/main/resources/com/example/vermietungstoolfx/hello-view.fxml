@@ -34,12 +34,12 @@
                                  <Font size="24.0" />
                               </font>
                            </Label>
-                           <TextField fx:id="firstName" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" promptText="Firstname" text="Valentin">
+                           <TextField fx:id="firstName" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" promptText="Firstname">
                               <VBox.margin>
                                  <Insets top="15.0" />
                               </VBox.margin>
                            </TextField>
-                           <TextField fx:id="lastName" layoutX="173.0" layoutY="45.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" promptText="Lastname" text="Nussbaumer">
+                           <TextField fx:id="lastName" layoutX="173.0" layoutY="45.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" promptText="Lastname">
                               <VBox.margin>
                                  <Insets top="10.0" />
                               </VBox.margin>
@@ -537,8 +537,9 @@
                            <Font size="16.0" />
                         </font>
                      </Button>
-                     <Label layoutX="251.0" layoutY="347.0" text="Version 1.0" />
-                     <Label layoutX="202.0" layoutY="364.0" text="© Valentin Nussbaumer 2023" />
+                     <Label layoutX="223.0" layoutY="348.0" prefHeight="17.0" prefWidth="114.0" text="Version 1.2 - yelonl" />
+                     <Label layoutX="210.0" layoutY="379.0" text="valentin-nussbaunmer.com" />
+                     <Label layoutX="202.0" layoutY="396.0" text="© Valentin Nussbaumer 2023" />
                   </children>
                </AnchorPane>
            </content>
