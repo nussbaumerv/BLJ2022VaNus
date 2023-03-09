@@ -44,6 +44,7 @@ public class HelloController {
         String sTrim = s.substring(s.indexOf("<blockquote>&ldquo;") + 19, s.indexOf("&rdquo;"));
         sTrim.trim();
 
+
         return sTrim;
 
     }
@@ -56,7 +57,6 @@ public class HelloController {
         } catch (Exception e){
             message = "To many requests";
         }
-        System.out.println(message);
         Image image = new Image("https://cataas.com/cat/says/"+ message + "?width=600&height=600");
         imageView.setImage(image);
 
