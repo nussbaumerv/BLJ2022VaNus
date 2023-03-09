@@ -29,9 +29,24 @@ public class Main {
         return returnVal;
     }
 
+
+    public static boolean[][] setArr(int x, int y, boolean validPoints[][]) {
+        if (x < 0) {
+            validPoints[0][0] = false;
+            validPoints[0][1] = false;
+            validPoints[0][2] = false;
+        }
+        if (y < 0) {
+            validPoints[0][0] = false;
+            validPoints[1][0] = false;
+            validPoints[2][0] = false;
+        }
+        return validPoints;
+    }
+
     public static BufferedImage noise(BufferedImage img) {
         System.out.println("Noising...");
-        double probability = 0.99;
+        double probability = 0.7;
 
         for (int y = 0; y < img.getHeight(); y++) {
             for (int x = 0; x < img.getWidth(); x++) {
@@ -61,70 +76,38 @@ public class Main {
                     int bBucket = 0;
                     int finalCounter = 0;
 
+                    int tempY = y - 1;
+                    int tempX = x - 1;
 
+                    boolean validPoints[][] = {
+                            {true, true, true},
+                            {true, false, true},
+                            {true, true, true}
+                    };
 
+                    validPoints = setArr(tempX, tempY, validPoints);
 
-                    if (checkCoordinates(img, x + 1, y)) {
-                        if (checkNoised(img.getRGB(x + 1, y))) {
-                            Color tempColor = new Color(img.getRGB(x + 1, y));
-                            rBucket += tempColor.getRed();
-                            gBucket += tempColor.getGreen();
-                            bBucket += tempColor.getBlue();
+                    for (int pY = 0; pY < 3; pY++) {
+                        for (int pX = 0; pX < 3; pX++) {
+                            if (validPoints[pX][pY]) {
+                                if (checkCoordinates(img, tempX + pX, tempY + pY)) {
+                                    if (checkNoised(img.getRGB(tempX + pX, tempY + pY))) {
+                                        Color tempColor = new Color(img.getRGB(tempX + pX, tempY + pY));
+                                        rBucket += tempColor.getRed();
+                                        gBucket += tempColor.getGreen();
+                                        bBucket += tempColor.getBlue();
 
-                            finalCounter++;
+                                        finalCounter++;
+                                    }
+                                }
+                            }
+                            else {
+                                //System.out.println(x + " " + y + "    /   " + pX + " " + pY);
+                            }
+
                         }
                     }
 
-                    if (checkCoordinates(img, x - 1, y)) {
-                        if (checkNoised(img.getRGB(x - 1, y))) {
-                            Color tempColor = new Color(img.getRGB(x - 1, y));
-                            rBucket += tempColor.getRed();
-                            gBucket += tempColor.getGreen();
-                            bBucket += tempColor.getBlue();
-
-                            finalCounter++;
-                        }
-                    }
-
-                    if (checkCoordinates(img, x, y + 1)) {
-                        if (checkNoised(img.getRGB(x, y + 1))) {
-                            Color tempColor = new Color(img.getRGB(x, y + 1));
-                            rBucket += tempColor.getRed();
-                            gBucket += tempColor.getGreen();
-                            bBucket += tempColor.getBlue();
-                            finalCounter++;
-                        }
-                    }
-
-                    if (checkCoordinates(img, x, y - 1)) {
-                        if (checkNoised(img.getRGB(x, y - 1))) {
-                            Color tempColor = new Color(img.getRGB(x, y - 1));
-                            rBucket += tempColor.getRed();
-                            gBucket += tempColor.getGreen();
-                            bBucket += tempColor.getBlue();
-                            finalCounter++;
-                        }
-                    }
-
-                    if (checkCoordinates(img, x + 1, y + 1)) {
-                        if (checkNoised(img.getRGB(x + 1, y + 1))) {
-                            Color tempColor = new Color(img.getRGB(x + 1, y + 1));
-                            rBucket += tempColor.getRed();
-                            gBucket += tempColor.getGreen();
-                            bBucket += tempColor.getBlue();
-                            finalCounter++;
-                        }
-                    }
-
-                    if (checkCoordinates(img, x - 1, y - 1)) {
-                        if (checkNoised(img.getRGB(x - 1, y - 1))) {
-                            Color tempColor = new Color(img.getRGB(x - 1, y - 1));
-                            rBucket += tempColor.getRed();
-                            gBucket += tempColor.getGreen();
-                            bBucket += tempColor.getBlue();
-                            finalCounter++;
-                        }
-                    }
                     int finColor = img.getRGB(x, y);
 
                     if (finalCounter == 0) {
