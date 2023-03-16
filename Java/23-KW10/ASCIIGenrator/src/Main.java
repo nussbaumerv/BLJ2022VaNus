@@ -44,27 +44,38 @@ public class Main {
         return validPoints;
     }
 
+    public static int getBrightness(Color color) {
+
+        final double cr = 0.241;
+        final double cg = 0.691;
+        final double cb = 0.068;
+
+        double r, g, b;
+        r = color.getRed();
+        g = color.getGreen();
+        b = color.getBlue();
+
+        double result = Math.sqrt(cr * r * r + cg * g * g + cb * b * b);
+
+        return (int) result;
+    }
+
     public static BufferedImage noise(BufferedImage img) {
         System.out.println("Noising...");
-        double probability = 0.99;
-        boolean first = true;
+        double probability = 0.7;
 
         for (int y = 0; y < img.getHeight(); y++) {
             for (int x = 0; x < img.getWidth(); x++) {
-                if(first){
-                    first = false;
-                } else {
-                    double rand = Math.random();
-                    if (rand < probability) {
-                        rand = Math.random();
+                double rand = Math.random();
+                if (rand < probability) {
+                    rand = Math.random();
 
-                        if (rand <= 0.5) {
-                            img.setRGB(x, y, rgbWhite);
-                        } else {
-                            img.setRGB(x, y, rgbBlack);
-                        }
-
+                    if (rand <= 0.5) {
+                        img.setRGB(x, y, rgbWhite);
+                    } else {
+                        img.setRGB(x, y, rgbBlack);
                     }
+
                 }
             }
         }
@@ -132,6 +143,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedImage img = null;
+        System.out.println(getBrightness(Color.BLACK));
+        System.out.println(getBrightness(Color.BLUE));
+        System.out.println(getBrightness(Color.GREEN));
+        System.out.println(getBrightness(Color.WHITE));
 
         try {
             img = ImageIO.read(new File("C:/Users/nussb/Desktop/me.jpg"));
@@ -139,17 +154,10 @@ public class Main {
         } catch (IOException e) {
             System.out.println("File not Found");
         }
-        try {
-            img = noise(img);
-            ImageIO.write(img, "png", new File("C:/Users/nussb/Desktop/noised.png"));
-            System.out.println("Successfully Noised");
-        } catch (Exception e) {
-            System.out.println("Can't Noise");
-        }
 
         try {
-            img = deNoise(img);
-            ImageIO.write(img, "png", new File("C:/Users/nussb/Desktop/deNoised.png"));
+            img = noise(img);
+            ImageIO.write(img, "png", new File("C:/Users/nussb/Desktop/calc.png"));
             System.out.println("Successfully Denoised");
         } catch (Exception e) {
             System.out.println("Can't Denoise");
