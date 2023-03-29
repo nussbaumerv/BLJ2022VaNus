@@ -1,0 +1,8 @@
+
+0
+java:S1220""Move this file to a named package.
+W
+java:S1854="<Remove this useless assignment to local variable "renderer".(Õ›ßÏøÿÿÿÿ
+Q	java:S125&"<This block of commented-out lines of code should be removed.(¼Ù×´
+H
+java:S1481="-Remove this unused "renderer" local variable.(Õ›ßÏøÿÿÿÿ

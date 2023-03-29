@@ -1,0 +1,15 @@
+
+†
+java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".( Ï
+‹
+java:S1319)"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ë²ªØüÿÿÿÿ
+†
+java:S1319,"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿ€êá
+v
+java:S1488%"`Immediately return this expression instead of assigning it to the temporary variable "pointArr".(¦„¹°
+z
+java:S14881"_Immediately return this expression instead of assigning it to the temporary variable "lineArr".(¸èÁ¹ıÿÿÿÿ
+t
+java:S14886"^Immediately return this expression instead of assigning it to the temporary variable "triArr".(ºÂú
+0
+java:S1220""Move this file to a named package.

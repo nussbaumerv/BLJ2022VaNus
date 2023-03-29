@@ -1,0 +1,18 @@
+
+f	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óîï9
+l	java:S117“"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïóÇøÿÿÿÿ
+g	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸‹ª
+l	java:S117›"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àîª×üÿÿÿÿ
+l	java:S117œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’¸–Èûÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+i	java:S116"URename this field "OFFSET_MID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å©¶9
+j	java:S116"URename this field "OFFSET_END" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÃü«
+?
+java:S1948"$Make "cs" transient or serializable.(Ï ‡æúÿÿÿÿ
+_
+java:S32524"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Â÷‚À
+M
+java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘
+P
+java:S1128":Remove this unused import 'java.awt.event.ActionListener'.(Ìä¹
