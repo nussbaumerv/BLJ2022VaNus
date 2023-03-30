@@ -3,7 +3,10 @@ package ch.noseryoung.test;
 import ch.noseryoung.main.GameConsole;
 import org.junit.jupiter.api.Test;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -276,4 +279,80 @@ public class ConsoleStreamTest {
                 2004-11-21 Nintendo DS""";
         assertEquals(CONSOLE_RELEASE_STRINGS_NOVEMBER_SORTED, actual);
     }
+
+
+
+    //My Own challenges
+    // Challenge 1
+
+    /**
+     * Test:        Get one home console of the oldest generation and print it like that :
+     *                  The oldest console with the generation <generation>. is <name> it was initially released <release date in this format: on dd.MM.yyyy >
+     * Expected:     The oldest console with the generation 1. is Color TV-Game it was initially released 01.06.1977.
+     */
+    @Test
+    public void test_GetHomeConsole_OldestGeneration() {
+        String actual = null;
+        String correctSolution = "The oldest console with the generation 1. is Color TV-Game it was initially released 01.06.1977";
+        assertEquals(correctSolution, actual);
+    }
+
+    //Solution
+    @Test
+    public void test_GetHomeConsole_OldestGeneration_Solution() {
+        String actual = HOME_CONSOLES.stream()
+                .min(Comparator.comparingInt(GameConsole::getGeneration))
+                .map(console -> "The oldest console with the generation " + console.getGeneration() +". is " + console.getName() +" it was initially released "+ console.getInitialRelease().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
+                .orElse("");
+
+        String correctSolution = "The oldest console with the generation 1. is Color TV-Game it was initially released 01.06.1977";
+        assertEquals(correctSolution, actual);
+    }
+
+    // Challenge 2
+    /**
+     * Test:        Get the newest console, which was released in a leap year and return its best-selling game.
+     * Expected:    Mario Kart 8
+     */
+    @Test
+    public void test_GetStringGame_ReleasedInLeapYear() {
+        String actual = null;
+        assertEquals("Mario Kart 8", actual);
+    }
+
+    //Solution
+    @Test
+    public void test_GetStringGame_ReleasedInLeapYear_Solution() {
+        String actual = HOME_CONSOLES.stream()
+                .filter(console -> console.getInitialRelease().isLeapYear())
+                .max(Comparator.comparing(GameConsole::getInitialRelease))
+                .get().getBestSellingGame().toString();
+
+        assertEquals("Mario Kart 8", actual);
+    }
+
+
+    // Challenge 3
+    /**
+     * Test:        Get console, that got sold the most per day, if you compare the days since release and the units sold.
+     *                  The name of the console can't contain the name "Nintendo" and the Console "Switch" is also not Allowed.
+     * Expected:    Wii
+     */
+    @Test
+    public void test_GetHomeConsole_withoutNintendo() {
+        GameConsole actual = null;
+        assertEquals(WII, actual);
+    }
+
+    //Solution
+    @Test
+    public void test_GetHomeConsole_withoutNintendo_Solution() {
+        GameConsole actual = HOME_CONSOLES.stream()
+                .filter(console -> !console.getName().contains("Nintendo") && !console.equals(SWITCH))
+                .max(Comparator.comparingInt(c -> c.getUnitsSoldWorldwide() / Period.between(c.getInitialRelease(), LocalDate.now()).getYears()))
+                .get();
+
+        assertEquals(WII, actual);
+    }
+
 }
