@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static ch.noseryoung.main.NintendoConsoles.*;
@@ -19,17 +20,17 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_FirstThree() {
-        List<GameConsole> actual = PORTABLES.stream().toList();
+        List<GameConsole> actual = PORTABLES.stream().limit(3).toList();
         assertArrayEquals(new GameConsole[]{G_W, GB, VB}, actual.toArray());
     }
 
-	/**
+    /**
      * Test:        Get the last 3 home consoles.
      * Expected:    Wii, Wii U, Switch.
      */
     @Test
     public void test_GetHomeConsoles_LastThree() {
-        List<GameConsole> actual = HOME_CONSOLES.stream().toList();
+        List<GameConsole> actual = HOME_CONSOLES.stream().skip(HOME_CONSOLES.size() - 3).toList();
         assertArrayEquals(new GameConsole[]{WII, WII_U, SWITCH}, actual.toArray());
     }
 
@@ -39,7 +40,8 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_Played() {
-        String actual = "";
+        String actual = ALL_CONSOLES.stream().map(console -> "I have played on a " + console.getName() + "!").
+                collect(Collectors.joining("\n")).toString();
         String PLAYED_STRINGS = """
                 I have played on a Color TV-Game!
                 I have played on a Nintendo Entertainment System!
@@ -66,7 +68,13 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_PlayedOtherNames() {
-        String actual = "";
+        String actual = ALL_CONSOLES.stream().map(console -> {
+            if (console.getOtherNames().isEmpty()) {
+                return "I have played on a " + console.getName() + "!";
+            } else {
+                return "I have played on a " + console.getOtherNames().get(0) + "!";
+            }
+        }).collect(Collectors.joining("\n")).toString();
         String PLAYED_STRINGS_OTHER_NAMES = """
                 I have played on a Color TV-Game!
                 I have played on a NES!
@@ -93,7 +101,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_SortedByUnitsSold() {
-        List<GameConsole> actual = PORTABLES.stream().toList();
+        List<GameConsole> actual = PORTABLES.stream()
+                .sorted(Comparator.comparingInt(GameConsole::getUnitsSoldWorldwide))
+                .collect(Collectors.toList());
         assertArrayEquals(new GameConsole[]{VB, N_N3DS, G_W, GB, GBC, N3DS, GBA, NDS}, actual.toArray());
     }
 
@@ -103,7 +113,14 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetHomeConsoles_ReleasedBeforeAndrew() {
-        List<GameConsole> actual = HOME_CONSOLES.stream().toList();
+        List<GameConsole> actual = HOME_CONSOLES.stream().map(console -> {
+                    if (console.getInitialRelease().isBefore(LocalDate.of(1997, 10, 20))) {
+                        return console;
+                    } else {
+                        return null;
+                    }
+                }).filter(Objects::nonNull)
+                .collect(Collectors.toList());
         assertArrayEquals(new GameConsole[]{COLOR_TV_GAME, NES, SNES, N64}, actual.toArray());
     }
 
@@ -113,7 +130,15 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetAllConsoles_HaveMarioGameAsBestSeller() {
-        List<GameConsole> actual = ALL_CONSOLES.stream().toList();
+        List<GameConsole> actual = ALL_CONSOLES.stream().map(console -> {
+                    if (console.getBestSellingGame().contains("Mario")) {
+                        return console;
+                    } else {
+                        return null;
+                    }
+                }).filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        ;
         assertArrayEquals(new GameConsole[]{NES, SNES, N64, WII_U, SWITCH, NDS, N3DS, N_N3DS}, actual.toArray());
     }
 
@@ -123,7 +148,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_BestSellerOfBestSellingConsole() {
-        String actual = "";
+        String actual = ALL_CONSOLES.stream()
+                .max(Comparator.comparingInt(GameConsole::getUnitsSoldWorldwide)).get()
+                .getBestSellingGame().toString();
         assertEquals("New Super Mario Bros.", actual);
     }
 
@@ -133,7 +160,8 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetBoolean_AllConsolesDevelopedByNintendo() {
-        boolean actual = false;
+        boolean actual = ALL_CONSOLES.stream()
+                .anyMatch(gameConsole -> gameConsole.getDeveloper().equals("Nintendo"));
         assertTrue(actual);
     }
 
@@ -143,7 +171,8 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetBoolean_ConsoleExistsLessThanMillionSold() {
-        boolean actual = false;
+        boolean actual = ALL_CONSOLES.stream()
+                .anyMatch(gameConsole -> gameConsole.getUnitsSoldWorldwide() < 1000000);
         assertTrue(actual);
     }
 
@@ -153,7 +182,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetConsole_ExistsLessThanMillionSold() {
-        GameConsole actual = null;
+        GameConsole actual = ALL_CONSOLES.stream()
+                .filter(gameConsole -> gameConsole.getUnitsSoldWorldwide() < 1000000)
+                .findFirst().get();
         assertEquals(VB, actual);
     }
 
@@ -163,7 +194,8 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetBoolean_NoConsoleReleasedInJanuary() {
-        boolean actual = false;
+        boolean actual = ALL_CONSOLES.stream()
+                .noneMatch(gameConsole -> gameConsole.getInitialRelease().getMonthValue() == 1);
         assertTrue(actual);
     }
 
@@ -173,7 +205,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetInt_ConsolesContainGameInName() {
-        long actual = -1;
+        long actual = ALL_CONSOLES.stream()
+                .filter(gameConsole -> gameConsole.getName().toLowerCase().contains("game")).
+                toArray().length;
         assertEquals(6, actual);
     }
 
@@ -183,7 +217,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetInt_ConsolesContainBoyInName() {
-        long actual = -1;
+        long actual = ALL_CONSOLES.stream()
+                .filter(gameConsole -> gameConsole.getName().toLowerCase().contains("boy")).
+                toArray().length;
         assertEquals(4, actual);
     }
 
@@ -193,7 +229,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetInt_ConsolesContainGameAndBoyInName() {
-        long actual = -1;
+        long actual = ALL_CONSOLES.stream()
+                .filter(gameConsole -> gameConsole.getName().toLowerCase().contains("game") && gameConsole.getName().toLowerCase().contains("boy")).
+                toArray().length;
         assertEquals(3, actual);
     }
 
@@ -203,7 +241,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_NoOtherNamesAvailable() {
-        List<GameConsole> actual = PORTABLES.stream().toList();
+        List<GameConsole> actual = PORTABLES.stream()
+        .filter(gameConsole -> gameConsole.getOtherNames().isEmpty())
+                .toList();
         assertArrayEquals(new GameConsole[]{}, actual.toArray());
     }
 
@@ -213,7 +253,8 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetHomeConsole_LatestGeneration() {
-        GameConsole actual = null;
+        GameConsole actual = HOME_CONSOLES.stream()
+                .max(Comparator.comparingInt(GameConsole::getGeneration)).get();
         assertEquals(WII_U, actual);
     }
 
@@ -223,7 +264,11 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_ConsoleNameAndReleaseInNovemberSortedByDay() {
-        String actual = "";
+        String actual = ALL_CONSOLES.stream()
+                .filter(gameConsole -> gameConsole.getInitialRelease().getMonthValue() == 11)
+                .sorted(Comparator.comparingInt(c -> c.getInitialRelease().getDayOfMonth()))
+                .map(gameConsole -> gameConsole.getInitialRelease() + " " + gameConsole.getName())
+                .collect(Collectors.joining("\n"));
         String CONSOLE_RELEASE_STRINGS_NOVEMBER_SORTED = """
                 2012-11-18 Wii U
                 2006-11-19 Wii

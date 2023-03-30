@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ch.noseryoung.test.ConsoleStreamTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2022-05-30T10:55:04" hostname="DESKTOP-CL5BICA" time="0.161">
+<testsuite name="ch.noseryoung.test.ConsoleStreamTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-30T09:39:19" hostname="LAPTOP-CSDEFB8L" time="0.023">
   <properties/>
-  <testcase name="test_GetPortables_NoOtherNamesAvailable()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.063"/>
-  <testcase name="test_GetBoolean_ConsoleExistsLessThanMillionSold()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetInt_ConsolesContainGameAndBoyInName()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.006"/>
-  <testcase name="test_GetConsole_ExistsLessThanMillionSold()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetInt_ConsolesContainBoyInName()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetHomeConsoles_ReleasedBeforeAndrew()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetHomeConsole_LatestGeneration()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetString_Played()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.011"/>
-  <testcase name="test_GetBoolean_NoConsoleReleasedInJanuary()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.002"/>
-  <testcase name="test_GetString_PlayedOtherNames()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetString_ConsoleNameAndReleaseInNovemberSortedByDay()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.011"/>
-  <testcase name="test_GetString_BestSellerOfBestSellingConsole()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.004"/>
-  <testcase name="test_GetHomeConsoles_LastThree()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetBoolean_AllConsolesDevelopedByNintendo()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.003"/>
-  <testcase name="test_GetAllConsoles_HaveMarioGameAsBestSeller()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.005"/>
-  <testcase name="test_GetInt_ConsolesContainGameInName()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.005"/>
-  <testcase name="test_GetPortables_SortedByUnitsSold()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.002"/>
-  <testcase name="test_GetPortables_FirstThree()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.001"/>
+  <testcase name="test_GetString_ConsoleNameAndReleaseInNovemberSortedByDay()" classname="ch.noseryoung.test.ConsoleStreamTest" time="0.023"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
