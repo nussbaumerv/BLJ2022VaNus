@@ -4,7 +4,6 @@ import ch.noseryoung.main.GameConsole;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -94,9 +93,7 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_SortedByUnitsSold() {
-        List<GameConsole> actual = PORTABLES.stream()
-                .sorted(Comparator.comparingInt(GameConsole::getUnitsSoldWorldwide))
-        .collect(Collectors.toList());
+        List<GameConsole> actual = PORTABLES.stream().toList();
         assertArrayEquals(new GameConsole[]{VB, N_N3DS, G_W, GB, GBC, N3DS, GBA, NDS}, actual.toArray());
     }
 
@@ -136,13 +133,7 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetBoolean_AllConsolesDevelopedByNintendo() {
-        boolean actual = true;
-        for (GameConsole allConsole : ALL_CONSOLES) {
-            if (!allConsole.getDeveloper().equals("Nintendo")) {
-                actual = false;
-                break;
-            }
-        }
+        boolean actual = false;
         assertTrue(actual);
     }
 
@@ -212,16 +203,7 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_NoOtherNamesAvailable() {
-        List<GameConsole> actual = new ArrayList<GameConsole>();
-
-        for (GameConsole allPortables : PORTABLES) {
-            if (allPortables.getName().isEmpty()) {
-                actual.add(allPortables);
-                System.out.println(allPortables.getName());
-                break;
-            }
-        }
-
+        List<GameConsole> actual = PORTABLES.stream().toList();
         assertArrayEquals(new GameConsole[]{}, actual.toArray());
     }
 
