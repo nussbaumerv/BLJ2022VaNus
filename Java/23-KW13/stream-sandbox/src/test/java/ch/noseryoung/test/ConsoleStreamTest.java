@@ -282,7 +282,8 @@ public class ConsoleStreamTest {
 
 
 
-    //My Own challenges
+    // My Own challenges
+
     // Challenge 1
 
     /**
@@ -309,6 +310,9 @@ public class ConsoleStreamTest {
         assertEquals(correctSolution, actual);
     }
 
+
+
+
     // Challenge 2
     /**
      * Test:        Get the newest console, which was released in a leap year and return its best-selling game.
@@ -330,6 +334,8 @@ public class ConsoleStreamTest {
 
         assertEquals("Mario Kart 8", actual);
     }
+
+
 
 
     // Challenge 3
