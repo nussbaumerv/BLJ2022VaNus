@@ -1,11 +1,13 @@
 package ch.noseryoung.blj.memoryfx;
 
+import javafx.scene.image.Image;
+
 public class Memory {
     String id;
-    String icon;
+    Image icon;
     boolean state;
 
-    public Memory(String id, String icon){
+    public Memory(String id, Image icon){
         this.id = id;
         this.icon = icon;
         state = true;
@@ -19,11 +21,11 @@ public class Memory {
         this.id = id;
     }
 
-    public String getIcon() {
+    public Image getIcon() {
         return icon;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(Image icon) {
         this.icon = icon;
     }
 

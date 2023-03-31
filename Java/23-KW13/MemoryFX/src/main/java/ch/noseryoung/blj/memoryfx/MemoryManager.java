@@ -1,5 +1,7 @@
 package ch.noseryoung.blj.memoryfx;
 
+import javafx.scene.image.Image;
+
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Random;
@@ -9,11 +11,12 @@ public class MemoryManager {
     int fieldHeight = 4;
     Memory[][] memoryField;
 
-    String[] icons = {"*", "*", "#", "#", "$", "$", "%", "%", "@", "@", ":", ":", "?", "?", "/", "/"};
+    Image[] icons;
 
     public MemoryManager(){
         memoryField = new Memory[fieldHeight][filedWidth];
-        String[] shuffledIcons = shuffleIcons(icons);
+        Image[] icons = initializeIcons();
+        Image[] shuffledIcons = shuffleIcons(icons);
         int counter = 0;
         for(int r = 0; r < fieldHeight; r++){
             for (int c = 0; c < filedWidth; c++){
@@ -24,10 +27,20 @@ public class MemoryManager {
         }
     }
 
-    private String[] shuffleIcons(String[] array)
+    public Image[] initializeIcons(){
+        Image[] icons = new Image[filedWidth*fieldHeight];
+        for(int r = 0; r < (fieldHeight * filedWidth); r+=2){
+            Image img = new Image("https://picsum.photos/200");
+            icons[r] = img;
+            icons[r+1] = img;
+        }
+        return icons;
+    }
+
+    private Image[] shuffleIcons(Image[] array)
     {
         int index;
-        String temp;
+        Image temp;
         Random random = new Random();
         for (int i = array.length - 1; i > 0; i--)
         {
@@ -83,9 +96,5 @@ public class MemoryManager {
     public int getC(Memory memory){
         char[] id = memory.getId().toCharArray();
         return Integer.parseInt(String.valueOf(id[3]));
-    }
-
-    public void setMemory(Memory memory, String newValue){
-        memoryField[getR(memory)][getC(memory)].setIcon(newValue);
     }
 }

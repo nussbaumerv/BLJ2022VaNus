@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -89,29 +91,24 @@ public class HelloController {
         }
         Button button = (Button) event.getSource();
         Memory memory = manager.getMemory(button.getId());
-        button.setText(memory.getIcon());
+        ImageView view = new ImageView(memory.getIcon());
+        view.setFitHeight(40);
+        view.setFitWidth(30);
+        view.setPreserveRatio(false);
+        button.setGraphic(view);
 
         if (open1 == null) {
             open1 = memory;
             bopen1 = button;
-            bopen1.setDisable(true);
-        } else if (memory.getIcon().equals(open1.getIcon())) {
-            button.setText(langProps.getProperty("foundMessage"));
-            bopen1.setText(langProps.getProperty("foundMessage"));
-
+        } else if (memory.getIcon().equals(open1.getIcon()) && ! memory.getId().equals(open1.getId())) {
             button.setDisable(true);
             bopen1.setDisable(true);
 
             setAllNull();
-        } else {
+        } else if(!open1.getId().equals(memory.getId())){
             open2 = memory;
             bopen2 = button;
-            bopen2.setDisable(true);
         }
-
-
-        System.out.println(button.getText());
-        System.out.println(button.getId());
     }
 
     @FXML
@@ -125,10 +122,8 @@ public class HelloController {
 
     @FXML
     private void closeOpen() {
-        System.out.println("happening");
-        bopen1.setText("");
-        bopen2.setText("");
-
+        bopen1.setGraphic(null);
+        bopen2.setGraphic(null);
         bopen1.setDisable(false);
         bopen2.setDisable(false);
 
