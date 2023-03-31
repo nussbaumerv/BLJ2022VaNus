@@ -97,4 +97,8 @@ public class MemoryManager {
         char[] id = memory.getId().toCharArray();
         return Integer.parseInt(String.valueOf(id[3]));
     }
+
+    public int getFiledSize(){
+        return filedWidth * fieldHeight;
+    }
 }
