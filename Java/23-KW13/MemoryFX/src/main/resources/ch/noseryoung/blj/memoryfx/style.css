@@ -4,3 +4,42 @@
 .tab-pane .tab-header-area {
     visibility: hidden ;
 }
+.root{
+    -fx-background-color: #4f4e4d;
+}
+.button, .arrow-button, .menu-button{
+    -fx-background-color: grey;
+    -fx-border-color: #363635;
+    -fx-border-width: 2px;
+}
+
+.button{
+    -fx-background-color: #363635;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+}
+
+.button:hover{
+    -fx-border-color: red;
+}
+
+.arrow-button, .menu-button{
+    -fx-border-color: red;
+}
+
+.menu-button lable{
+    -fx-text-fill: green;
+
+}
+
+.label{
+    -fx-text-fill: #ababa9;
+}
+
+ .menu-button:hover, .arrow-button:hover{
+    -fx-border-color: black;
+    -fx-cursor: pointer;
+}
+.hyperlink{
+    -fx-text-fill:black;
+}

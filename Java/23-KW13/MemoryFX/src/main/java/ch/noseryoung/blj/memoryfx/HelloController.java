@@ -99,7 +99,7 @@ public class HelloController {
         setLanguage("englisch");
     }
 
-    public void enableTextLanguage(){
+    public void enableTextLanguage() {
         welcomeText.setText(langProps.getProperty("introMessage"));
         start.setText(langProps.getProperty("startButtonText"));
         language.setText(langProps.getProperty("languageSwitch"));
@@ -111,12 +111,11 @@ public class HelloController {
 
             langProps = new Properties();
             langProps.load(new FileInputStream(langConfigPath));
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Sprache konnte nicht geändert werden");
         }
         enableTextLanguage();
     }
-
 
 
     @FXML
@@ -135,19 +134,20 @@ public class HelloController {
         if (open1 == null) {
             open1 = memory;
             bopen1 = button;
-        } else if (memory.getIcon().equals(open1.getIcon()) && ! memory.getId().equals(open1.getId())) {
+        } else if (memory.getIcon().equals(open1.getIcon()) && !memory.getId().equals(open1.getId())) {
             button.setDisable(true);
             bopen1.setDisable(true);
 
-            foundMemory +=2;
+            foundMemory += 2;
             System.out.println(foundMemory);
 
-            if(foundMemory == manager.getFiledSize()){
+            if (foundMemory == manager.getFiledSize()) {
+                System.out.println("Won");
                 finishedMemory();
             }
 
             setAllNull();
-        } else if(!open1.getId().equals(memory.getId())){
+        } else if (!open1.getId().equals(memory.getId())) {
             open2 = memory;
             bopen2 = button;
         }
@@ -173,7 +173,7 @@ public class HelloController {
     }
 
     @FXML
-    private EventHandler<ActionEvent> moveToMain(){
+    private EventHandler<ActionEvent> moveToMain() {
         tabPane.getSelectionModel().select(1);
         return null;
     }
@@ -182,22 +182,121 @@ public class HelloController {
     private void setLanguageToGerman() throws IOException {
         setLanguage("german");
     }
+
     @FXML
     private void setLanguageToEnglish() throws IOException {
         setLanguage("englisch");
     }
 
     @FXML
-    private void finishedMemory(){
+    private void finishedMemory() {
         alertMsg.setText(langProps.getProperty("wonMessage"));
         alertButton.setText(langProps.getProperty("wonButton"));
         tabPane.getSelectionModel().select(2);
-
-        manager = new MemoryManager();
+        cleanFields();
     }
 
     @FXML
-    private void resetFields(){
+    private void cleanFields() {
+        manager = new MemoryManager();
+
+        r0c0.setDisable(false);
+        r0c0.setGraphic(null);
+
+        r0c1.setDisable(false);
+        r0c1.setGraphic(null);
+
+        r0c2.setDisable(false);
+        r0c2.setGraphic(null);
+
+        r0c3.setDisable(false);
+        r0c3.setGraphic(null);
+
+        r1c0.setDisable(false);
+        r1c0.setGraphic(null);
+
+        r1c1.setDisable(false);
+        r1c1.setGraphic(null);
+
+        r1c2.setDisable(false);
+        r1c2.setGraphic(null);
+
+        r1c3.setDisable(false);
+        r1c3.setGraphic(null);
+
+        r2c0.setDisable(false);
+        r2c0.setGraphic(null);
+
+        r2c1.setDisable(false);
+        r2c1.setGraphic(null);
+
+        r2c2.setDisable(false);
+        r2c2.setGraphic(null);
+
+        r2c3.setDisable(false);
+        r2c3.setGraphic(null);
+
+        r3c0.setDisable(false);
+        r3c0.setGraphic(null);
+
+        r3c1.setDisable(false);
+        r3c1.setGraphic(null);
+
+        r3c2.setDisable(false);
+        r3c2.setGraphic(null);
+
+        r3c3.setDisable(false);
+        r3c3.setGraphic(null);
+
+/*
+        @FXML
+        private Button r0c1;
+
+        @FXML
+        private Button r0c2;
+
+        @FXML
+        private Button r0c3;
+
+
+        @FXML
+        private Button r1c0;
+
+        @FXML
+        private Button r1c1;
+
+        @FXML
+        private Button r1c2;
+
+        @FXML
+        private Button r1c3;
+
+        @FXML
+        private Button r2c0;
+
+        @FXML
+        private Button r2c1;
+
+        @FXML
+        private Button r2c2;
+
+        @FXML
+        private Button r2c3;
+
+        @FXML
+        private Button r3c0;
+
+        @FXML
+        private Button r3c1;
+
+        @FXML
+        private Button r3c2;
+
+        @FXML
+        private Button r3c3;
+
+ */
+
 
     }
 

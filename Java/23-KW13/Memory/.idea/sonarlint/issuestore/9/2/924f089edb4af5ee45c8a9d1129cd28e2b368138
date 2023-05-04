@@ -1,0 +1,6 @@
+
+j
+java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(Í§Ñ“8¨ô‰—ó0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(„ãÕÓ8¯ô‰—ó0
+\
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ8¯ô‰—ó0

@@ -1,0 +1,38 @@
+
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(šñÌÜ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(öò–›øÿÿÿÿ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(˜ÙÄÏûÿÿÿÿ
+n
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Š‚–L
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·£ô
+E
+java:S1066f"/Merge this if statement with the enclosing one.(²œìã
+‡
+java:S1319Õ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÜÌÁß
+Q
+java:S1141˜"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Q
+java:S1141š"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Q
+java:S1141œ"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+s
+java:S1488"]Immediately return this expression instead of assigning it to the temporary variable "index".(Ÿæ‘™
+x
+java:S1488<"]Immediately return this expression instead of assigning it to the temporary variable "index".(¹ÚÓşüÿÿÿÿ
+x
+java:S1488C"]Immediately return this expression instead of assigning it to the temporary variable "index".(«ğµ‹øÿÿÿÿ
+x
+java:S1488J"]Immediately return this expression instead of assigning it to the temporary variable "index".(Ö‚‘óûÿÿÿÿ
+y
+java:S1488´"]Immediately return this expression instead of assigning it to the temporary variable "index".(›‚–ãıÿÿÿÿ
+t
+java:S1488Í"]Immediately return this expression instead of assigning it to the temporary variable "valid".(™Šªı
+
+java:S1186Ñ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÄäŠÕúÿÿÿÿ
+Q	java:S1079"<Method has 8 parameters, which is greater than 7 authorized.(ŞÇä‰
+V	java:S107@"<Method has 8 parameters, which is greater than 7 authorized.(îµñÉşÿÿÿÿ
+V	java:S107G"<Method has 8 parameters, which is greater than 7 authorized.(ÌŒß¥ùÿÿÿÿ

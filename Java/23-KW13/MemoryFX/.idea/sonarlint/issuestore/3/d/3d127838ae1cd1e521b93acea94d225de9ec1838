@@ -1,0 +1,7 @@
+
+j
+java:S2095q"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(Í§Ñ“8ñ—Ş€õ0
+T	java:S106s"9Replace this use of System.out or System.err by a logger.(²øÂ;8ù—Ş€õ0
+V	java:S106"9Replace this use of System.out or System.err by a logger.(ï›ÔÎ8ü—Ş€õ0
+U	java:S106‘"9Replace this use of System.out or System.err by a logger.(ÓË8ü—Ş€õ0
+Y	java:S125ı"<This block of commented-out lines of code should be removed.(§îà…8ƒ˜Ş€õ0
